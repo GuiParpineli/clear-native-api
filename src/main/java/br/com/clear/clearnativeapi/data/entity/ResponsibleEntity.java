@@ -25,8 +25,4 @@ public class ResponsibleEntity {
     private String role;
     @OneToOne
     private UserEntity userEntity;
-
-    public ResponsibleDto toDto() {
-        return new ResponsibleDto(id, name, email, company.toDto());
-    }
 }

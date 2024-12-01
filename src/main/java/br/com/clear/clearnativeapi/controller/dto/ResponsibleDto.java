@@ -7,5 +7,6 @@ import java.io.Serializable;
 /**
  * DTO for {@link ResponsibleEntity}
  */
-public record ResponsibleDto(Long id, String name, String email, CompanyDto company) implements Serializable {
+public record ResponsibleDto(Long id, String name, String email, UserDto user,
+                             CompanyDto company) implements Serializable {
 }

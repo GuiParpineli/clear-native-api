@@ -17,7 +17,7 @@ class ResponsibleUseCaseImpl implements ResponsibleUseCase {
     }
 
     @Override
-    public ResponsibleDto createResponsible(CreateResponsibleDto responsible) {
+    public ResponsibleDto createResponsible(Responsible responsible) {
         return repository.save(responsible.toEntity());
     }
 

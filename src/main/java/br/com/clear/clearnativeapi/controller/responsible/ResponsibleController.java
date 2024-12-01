@@ -23,6 +23,6 @@ public class ResponsibleController {
 
     @PostMapping("/create")
     public ResponseEntity<ResponsibleDto> createResponsible(@RequestBody CreateResponsibleDto dto) {
-        return ResponseEntity.status(201).body(useCase.createResponsible(dto));
+        return ResponseEntity.status(201).body(useCase.createResponsible(dto.toModel()));
     }
 }

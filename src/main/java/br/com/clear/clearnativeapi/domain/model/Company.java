@@ -10,4 +10,8 @@ public class Company {
     private String email;
     private String phone;
     private Address address;
+
+    public Company(Long id) {
+        this.id = id;
+    }
 }

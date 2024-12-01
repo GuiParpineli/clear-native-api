@@ -6,7 +6,7 @@ import br.com.clear.clearnativeapi.controller.dto.request.CreateResponsibleDto;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 
 public interface ResponsibleUseCase {
-    ResponsibleDto createResponsible(CreateResponsibleDto responsible);
+    ResponsibleDto createResponsible(Responsible responsible);
 
     ResponsibleDto updateResponsible(Responsible responsible);
 
