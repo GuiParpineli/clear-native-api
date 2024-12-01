@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: clear-api
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/mydatabase?serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: verysecret
+  threads:
+    virtual:
+      enabled: true
