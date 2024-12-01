@@ -26,7 +26,7 @@ public final class CompanyEntity {
     @OneToOne
     private AddressEntity address;
 
-    public CompanyDto toDto() {
-        return new CompanyDto(id, name);
+    public CompanyEntity(Long id) {
+        this.id = id;
     }
 }

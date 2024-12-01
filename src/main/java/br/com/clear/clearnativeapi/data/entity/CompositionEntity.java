@@ -1,5 +1,6 @@
 package br.com.clear.clearnativeapi.data.entity;
 
+import br.com.clear.clearnativeapi.adapter.mapper.responsible.RessponsibleMapper;
 import br.com.clear.clearnativeapi.controller.dto.CompositionDto;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
@@ -36,28 +37,10 @@ public class CompositionEntity {
     private String history;
     @OneToOne
     private ResponsibleEntity responsible;
-
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     @JoinColumn(name = "balance_sheet_id")
     private BalanceSheetEntity balanceSheet;
-
-    public CompositionDto toDto() {
-        return new CompositionDto(
-                id,
-                taxNoteNumber,
-                emissionDate,
-                dueDate,
-                iss,
-                inss,
-                irrf,
-                csrf,
-                credit,
-                debit,
-                history,
-                responsible.toDto()
-        );
-    }
 
     @Override
     public final boolean equals(Object o) {

@@ -23,16 +23,4 @@ public class Responsible {
         this.role = role;
         this.user = user;
     }
-
-    public ResponsibleEntity toEntity() {
-        return new ResponsibleEntity(
-                id,
-                name,
-                email,
-                phone,
-                company.toEntity(),
-                role,
-                user.toEntity()
-        );
-    }
 }
