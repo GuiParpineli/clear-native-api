@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/balance", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "public/balance", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Balance", description = "Balance operations")
 public class BalanceController {
     private final BalanceUseCase useCase;
@@ -20,7 +20,7 @@ public class BalanceController {
         this.useCase = useCase;
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<BalanceSheetDto> findById(@PathVariable Long id) {
         return ResponseEntity.ok(useCase.getBalanceById(id).orElse(null));
     }

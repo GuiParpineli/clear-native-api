@@ -1,20 +1,28 @@
 package br.com.clear.clearnativeapi.data.entity;
 
 import br.com.clear.clearnativeapi.controller.dto.AccountDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.Objects;
 
 @Entity
-public record AccountEntity(
-        @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
-        Long id,
-        Integer accountNumber,
-        String accountName,
-        String type
-) {
+@Table(name = "account")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+public class AccountEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private Integer accountNumber;
+    private String accountName;
+    private String type;
+
     public AccountDto toDto() {
         return new AccountDto(id, accountNumber, accountName, type);
     }
