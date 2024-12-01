@@ -2,10 +2,11 @@ package br.com.clear.clearnativeapi.domain.service.responsible;
 
 
 import br.com.clear.clearnativeapi.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.controller.dto.request.CreateResponsibleDto;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 
 public interface ResponsibleUseCase {
-    ResponsibleDto createResponsible(Responsible responsible);
+    ResponsibleDto createResponsible(CreateResponsibleDto responsible);
 
     ResponsibleDto updateResponsible(Responsible responsible);
 

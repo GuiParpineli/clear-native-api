@@ -12,4 +12,5 @@ public class Responsible {
     private String phone;
     private Company company;
     private Role role;
+    private User user;
 }

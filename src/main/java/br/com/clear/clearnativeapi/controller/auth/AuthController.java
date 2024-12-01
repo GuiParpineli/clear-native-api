@@ -2,8 +2,7 @@ package br.com.clear.clearnativeapi.controller.auth;
 
 import br.com.clear.clearnativeapi.configuration.jwt.JwtUtil;
 import br.com.clear.clearnativeapi.controller.dto.TokenDto;
-import br.com.clear.clearnativeapi.data.entity.UserDto;
-import br.com.clear.clearnativeapi.domain.service.user.UserUseCase;
+import br.com.clear.clearnativeapi.controller.dto.UserDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;

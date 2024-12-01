@@ -1,14 +1,11 @@
 package br.com.clear.clearnativeapi.data.entity;
 
 import br.com.clear.clearnativeapi.controller.dto.ResponsibleDto;
-import br.com.clear.clearnativeapi.domain.model.Responsible;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Objects;
 
 @Entity
 @Table(name = "responsible")
@@ -26,6 +23,8 @@ public class ResponsibleEntity {
     @OneToOne
     private CompanyEntity company;
     private String role;
+    @OneToOne
+    private UserEntity userEntity;
 
     public ResponsibleDto toDto() {
         return new ResponsibleDto(id, name, email, company.toDto());

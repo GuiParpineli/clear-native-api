@@ -21,7 +21,7 @@ import java.util.Collections;
 @NoArgsConstructor
 @Getter
 @Setter
-public class User implements UserDetails {
+public class UserEntity implements UserDetails {
     @Serial
     private static final long serialVersionUID = 0L;
     @Id
