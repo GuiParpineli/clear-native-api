@@ -8,7 +8,7 @@ import java.io.Serializable;
  * DTO for {@link br.com.clear.clearnativeapi.data.entity.AccountEntity}
  */
 @Value
-public class AccountEntityDto implements Serializable {
+public class AccountDto implements Serializable {
     Long id;
     Integer accountNumber;
     String accountName;

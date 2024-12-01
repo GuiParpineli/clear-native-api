@@ -1,0 +1,7 @@
+[
+  {
+    "name": "io.jsonwebtoken.impl.security.StandardSecureDigestAlgorithms",
+    "allDeclaredConstructors": true,
+    "allDeclaredMethods": true
+  }
+]

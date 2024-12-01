@@ -11,5 +11,5 @@ import java.time.LocalDate;
  */
 public record CompositionDto(Long id, Long taxNoteNumber, LocalDate emissionDate, LocalDate dueDate, Double iss,
                              Double inss, Double irrf, Double csrf, Double credit, Double debit, String history,
-                             Responsible responsible, BalanceSheet balance) implements Serializable {
+                             ResponsibleDto responsible, BalanceSheetDto balance) implements Serializable {
 }

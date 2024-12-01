@@ -1,5 +1,6 @@
 package br.com.clear.clearnativeapi.data.entity;
 
+import br.com.clear.clearnativeapi.controller.dto.CompanyDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,4 +18,7 @@ public record CompanyEntity(
         @OneToOne
         AddressEntity address
 ) {
+    public CompanyDto toDto() {
+        return new CompanyDto(id, name);
+    }
 }

@@ -1,6 +1,6 @@
 package br.com.clear.clearnativeapi.data.entity;
 
-import br.com.clear.clearnativeapi.controller.dto.AccountEntityDto;
+import br.com.clear.clearnativeapi.controller.dto.AccountDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,7 +15,7 @@ public record AccountEntity(
         String accountName,
         String type
 ) {
-    public AccountEntityDto toDto() {
-        return new AccountEntityDto(id, accountNumber, accountName, type);
+    public AccountDto toDto() {
+        return new AccountDto(id, accountNumber, accountName, type);
     }
 }

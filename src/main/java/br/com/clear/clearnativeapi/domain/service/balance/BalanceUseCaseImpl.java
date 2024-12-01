@@ -4,6 +4,7 @@ import br.com.clear.clearnativeapi.controller.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.controller.dto.CompanyDto;
 import br.com.clear.clearnativeapi.controller.dto.CompositionDto;
 import br.com.clear.clearnativeapi.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.data.entity.BalanceSheetEntity;
 import br.com.clear.clearnativeapi.data.repository.BalanceSheetEntityRepository;
 import br.com.clear.clearnativeapi.domain.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.Company;
@@ -53,7 +54,7 @@ class BalanceUseCaseImpl implements BalanceUseCase {
 
     @Override
     public Optional<BalanceSheetDto> getBalanceById(Long id) {
-        return Optional.empty();
+        return repository.findById(id).map(BalanceSheetEntity::toDto);
     }
 
     @Override

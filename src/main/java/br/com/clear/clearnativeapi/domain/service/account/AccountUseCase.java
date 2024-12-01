@@ -1,15 +1,15 @@
 package br.com.clear.clearnativeapi.domain.service.account;
 
 
-import br.com.clear.clearnativeapi.controller.dto.AccountEntityDto;
+import br.com.clear.clearnativeapi.controller.dto.AccountDto;
 import br.com.clear.clearnativeapi.domain.model.Account;
 
 public interface AccountUseCase {
-    AccountEntityDto createAccount(Account account);
+    AccountDto createAccount(Account account);
 
-    AccountEntityDto updateAccount(Account account);
+    AccountDto updateAccount(Account account);
 
-    AccountEntityDto getAccountById(Long id);
+    AccountDto getAccountById(Long id);
 
     void deleteAccount(Long id);
 }

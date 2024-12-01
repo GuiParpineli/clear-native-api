@@ -1,8 +1,10 @@
 package br.com.clear.clearnativeapi.data.entity;
 
+import br.com.clear.clearnativeapi.controller.dto.BalanceSheetDto;
 import jakarta.persistence.*;
 
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 public record BalanceSheetEntity(
@@ -19,4 +21,15 @@ public record BalanceSheetEntity(
         @ManyToMany
         Set<CompositionEntity> compositions
 ) {
+    public BalanceSheetDto toDto() {
+        return new BalanceSheetDto(
+                id,
+                month.toString(),
+                year,
+                company.toDto(),
+                status,
+                account.toDto(),
+                compositions.stream().map(CompositionEntity::toDto).collect(Collectors.toSet())
+        );
+    }
 }
