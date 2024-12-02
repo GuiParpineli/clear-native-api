@@ -1,9 +1,5 @@
 package br.com.clear.clearnativeapi.data.entity;
 
-import br.com.clear.clearnativeapi.adapter.mapper.responsible.RessponsibleMapper;
-import br.com.clear.clearnativeapi.controller.dto.CompositionDto;
-import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
-import br.com.clear.clearnativeapi.domain.model.Responsible;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

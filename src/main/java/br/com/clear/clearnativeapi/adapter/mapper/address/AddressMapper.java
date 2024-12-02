@@ -1,6 +1,7 @@
 package br.com.clear.clearnativeapi.adapter.mapper.address;
 
 import br.com.clear.clearnativeapi.controller.dto.AddressDto;
+import br.com.clear.clearnativeapi.data.entity.AddressEntity;
 import br.com.clear.clearnativeapi.domain.model.Address;
 
 public abstract class AddressMapper {
@@ -14,14 +15,14 @@ public abstract class AddressMapper {
         );
     }
 
-    public static Address toEntity(AddressDto addressDto) {
+    public static Address toModel(AddressEntity entity) {
         return new Address(
-                null,
-                addressDto.street(),
-                addressDto.number(),
-                addressDto.city(),
-                addressDto.state(),
-                addressDto.zipCode()
+                entity.getId(),
+                entity.getStreet(),
+                entity.getNumber(),
+                entity.getCity(),
+                entity.getState(),
+                entity.getZipCode()
         );
     }
 }

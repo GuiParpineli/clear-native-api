@@ -25,19 +25,6 @@ public class BalanceSheetEntity {
     private String status;
     @OneToOne(fetch = FetchType.EAGER)
     private AccountEntity account;
-
     @OneToMany(mappedBy = "balanceSheet", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<CompositionEntity> compositions = new LinkedHashSet<>();
-
-    public BalanceSheetDto toDto() {
-        return new BalanceSheetDto(
-                id,
-                month.toString(),
-                year,
-                company.toDto(),
-                status,
-                account.toDto(),
-                compositions.stream().map(CompositionEntity::toDto).collect(Collectors.toSet())
-        );
-    }
 }

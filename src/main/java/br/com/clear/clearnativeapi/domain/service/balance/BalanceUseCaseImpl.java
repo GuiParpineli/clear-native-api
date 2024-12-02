@@ -1,12 +1,13 @@
 package br.com.clear.clearnativeapi.domain.service.balance;
 
-import br.com.clear.clearnativeapi.controller.dto.BalanceSheetDto;
+import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.controller.dto.CompanyDto;
 import br.com.clear.clearnativeapi.controller.dto.CompositionDto;
 import br.com.clear.clearnativeapi.controller.dto.ResponsibleDto;
 import br.com.clear.clearnativeapi.data.entity.BalanceSheetEntity;
 import br.com.clear.clearnativeapi.data.repository.BalanceSheetEntityRepository;
 import br.com.clear.clearnativeapi.domain.enums.BalanceStatus;
+import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Company;
 import br.com.clear.clearnativeapi.domain.model.Composition;
 import org.springframework.stereotype.Service;
@@ -23,27 +24,27 @@ class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public Optional<BalanceSheetDto> createBalance(BalanceSheetDto request) {
+    public Optional<BalanceSheet> createBalance(BalanceSheet request) {
         return Optional.empty();
     }
 
     @Override
-    public void updateBalance(BalanceSheetDto request) {
+    public void updateBalance(BalanceSheet request) {
 
     }
 
     @Override
-    public void closeBalance(BalanceSheetDto request) {
+    public void closeBalance(BalanceSheet request) {
 
     }
 
     @Override
-    public void reopenCloseBalance(BalanceSheetDto request, ResponsibleDto ResponsibleDto) {
+    public void reopenCloseBalance(BalanceSheet request, ResponsibleDto ResponsibleDto) {
 
     }
 
     @Override
-    public void deleteBalance(BalanceSheetDto request, ResponsibleDto ResponsibleDto) {
+    public void deleteBalance(BalanceSheet request, ResponsibleDto ResponsibleDto) {
 
     }
 
@@ -53,77 +54,77 @@ class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceById(Long id) {
-        return repository.findById(id).map(BalanceSheetEntity::toDto);
+    public Optional<BalanceSheet> getBalanceById(Long id) {
+        return repository.findById(id).map(BalanceSheetMapper::toModel);
     }
 
     @Override
-    public List<BalanceSheetDto> getBalances(CompanyDto request) {
+    public List<BalanceSheet> getBalances(CompanyDto request) {
         return List.of();
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceByResponsibleDto(ResponsibleDto request) {
+    public Optional<BalanceSheet> getBalanceByResponsibleDto(ResponsibleDto request) {
         return Optional.empty();
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceByAccountType(String type) {
+    public Optional<BalanceSheet> getBalanceByAccountType(String type) {
         return Optional.empty();
     }
 
     @Override
-    public List<BalanceSheetDto> getBalanceByStatus(String status) {
+    public List<BalanceSheet> getBalanceByStatus(String status) {
         return List.of();
     }
 
     @Override
-    public List<BalanceSheetDto> getBalanceByMonth(CompanyDto CompanyDto, String month) {
+    public List<BalanceSheet> getBalanceByMonth(CompanyDto CompanyDto, String month) {
         return List.of();
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceByComposition(CompanyDto CompanyDto, CompositionDto composition) {
+    public Optional<BalanceSheet> getBalanceByComposition(CompanyDto CompanyDto, CompositionDto composition) {
         return Optional.empty();
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceByCompanyDtoAndResponsibleDto(CompanyDto request, ResponsibleDto ResponsibleDto) {
+    public Optional<BalanceSheet> getBalanceByCompanyDtoAndResponsibleDto(CompanyDto request, ResponsibleDto ResponsibleDto) {
         return Optional.empty();
     }
 
     @Override
-    public BalanceSheetDto getBalanceByCompanyDtoAndStatus(CompanyDto CompanyDto, BalanceStatus balanceStatus) {
+    public BalanceSheet getBalanceByCompanyDtoAndStatus(CompanyDto CompanyDto, BalanceStatus balanceStatus) {
         return null;
     }
 
     @Override
-    public List<BalanceSheetDto> getBalanceByCompanyDtoAndMonth(CompanyDto CompanyDto, String month) {
+    public List<BalanceSheet> getBalanceByCompanyDtoAndMonth(CompanyDto CompanyDto, String month) {
         return List.of();
     }
 
     @Override
-    public List<BalanceSheetDto> getBalanceByCompanyDtoAndYear(CompanyDto CompanyDto, Integer year) {
+    public List<BalanceSheet> getBalanceByCompanyDtoAndYear(CompanyDto CompanyDto, Integer year) {
         return List.of();
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceByResponsibleDtoAndStatus(ResponsibleDto ResponsibleDto, BalanceStatus balanceStatus) {
+    public Optional<BalanceSheet> getBalanceByResponsibleDtoAndStatus(ResponsibleDto ResponsibleDto, BalanceStatus balanceStatus) {
         return Optional.empty();
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceByResponsibleDtoAndMonth(ResponsibleDto ResponsibleDto, String month) {
+    public Optional<BalanceSheet> getBalanceByResponsibleDtoAndMonth(ResponsibleDto ResponsibleDto, String month) {
         return Optional.empty();
     }
 
     @Override
-    public Optional<BalanceSheetDto> getBalanceByResponsibleDtoAndYear(ResponsibleDto ResponsibleDto, Integer year) {
+    public Optional<BalanceSheet> getBalanceByResponsibleDtoAndYear(ResponsibleDto ResponsibleDto, Integer year) {
         return Optional.empty();
     }
 
     @Override
-    public List<BalanceSheetDto> getBalanceByYear(Company Company, Integer year) {
+    public List<BalanceSheet> getBalanceByYear(Company Company, Integer year) {
         return List.of();
     }
 

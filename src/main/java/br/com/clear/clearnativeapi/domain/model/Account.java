@@ -3,9 +3,11 @@ package br.com.clear.clearnativeapi.domain.model;
 
 import br.com.clear.clearnativeapi.data.entity.AccountEntity;
 import br.com.clear.clearnativeapi.domain.enums.AccountType;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class Account {
     private Long id;
     private Integer accountNumber;

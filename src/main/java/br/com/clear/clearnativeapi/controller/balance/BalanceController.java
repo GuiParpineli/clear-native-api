@@ -1,5 +1,6 @@
 package br.com.clear.clearnativeapi.controller.balance;
 
+import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.controller.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.domain.service.balance.BalanceUseCase;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -22,6 +23,8 @@ public class BalanceController {
 
     @GetMapping("/{id}")
     public ResponseEntity<BalanceSheetDto> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(useCase.getBalanceById(id).orElse(null));
+        return ResponseEntity.ok(
+                BalanceSheetMapper.toDto(useCase.getBalanceById(id).orElseThrow())
+        );
     }
 }

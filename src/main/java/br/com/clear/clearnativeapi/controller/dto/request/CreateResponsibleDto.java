@@ -12,18 +12,4 @@ public record CreateResponsibleDto(
         String phone,
         Long companyId
 ) {
-    public Responsible toModel() {
-        return new Responsible(
-                this.name,
-                this.email,
-                this.phone,
-                new Company(companyId),
-                Role.USER,
-                new User(
-                        this.name,
-                        this.email,
-                        this.password
-                )
-        );
-    }
 }

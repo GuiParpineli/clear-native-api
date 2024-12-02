@@ -9,7 +9,18 @@ import java.time.LocalDate;
 /**
  * DTO for {@link br.com.clear.clearnativeapi.data.entity.CompositionEntity}
  */
-public record CompositionDto(Long id, Long taxNoteNumber, LocalDate emissionDate, LocalDate dueDate, Double iss,
-                             Double inss, Double irrf, Double csrf, Double credit, Double debit, String history,
-                             ResponsibleDto responsible) implements Serializable {
+public record CompositionDto(
+        Long id,
+        Long taxNoteNumber,
+        LocalDate emissionDate,
+        LocalDate dueDate,
+        Double iss,
+        Double inss,
+        Double irrf,
+        Double csrf,
+        Double credit,
+        Double debit,
+        String history,
+        ResponsibleDto responsible
+) implements Serializable {
 }

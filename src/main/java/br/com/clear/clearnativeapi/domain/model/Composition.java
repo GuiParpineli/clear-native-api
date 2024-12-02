@@ -1,10 +1,12 @@
 package br.com.clear.clearnativeapi.domain.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDate;
 
 @Data
+@AllArgsConstructor
 public class Composition {
     private Long id;
     private Long taxNoteNumber;

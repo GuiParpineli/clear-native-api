@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static br.com.clear.clearnativeapi.adapter.mapper.responsible.ResponsibleMapper.*;
+
 @RestController
 @RequestMapping(value = "responsible", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Responsible", description = "Responsible operations")
@@ -24,6 +26,8 @@ public class ResponsibleController {
 
     @PostMapping("/create")
     public ResponseEntity<ResponsibleDto> createResponsible(@RequestBody CreateResponsibleDto dto) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(useCase.createResponsible(dto.toModel()));
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(toDto(useCase.createResponsible(toModel(dto))));
     }
 }
