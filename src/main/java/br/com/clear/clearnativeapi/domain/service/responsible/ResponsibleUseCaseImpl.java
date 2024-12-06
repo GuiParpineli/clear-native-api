@@ -3,6 +3,7 @@ package br.com.clear.clearnativeapi.domain.service.responsible;
 
 import br.com.clear.clearnativeapi.adapter.mapper.responsible.ResponsibleMapper;
 import br.com.clear.clearnativeapi.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.data.entity.ResponsibleEntity;
 import br.com.clear.clearnativeapi.data.repository.ResponsibleEntityRepository;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,8 @@ class ResponsibleUseCaseImpl implements ResponsibleUseCase {
 
     @Override
     public Responsible createResponsible(Responsible responsible) {
-        return ResponsibleMapper.toModel(repository.save(ResponsibleMapper.toEntity(responsible)));
+        ResponsibleEntity entity = ResponsibleMapper.toEntity(responsible);
+        return ResponsibleMapper.toModel(repository.save(entity));
     }
 
     @Override

@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 public class BalanceSheetEntity {
     @Id
     @GeneratedValue

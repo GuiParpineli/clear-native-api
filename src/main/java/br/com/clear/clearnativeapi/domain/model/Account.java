@@ -13,8 +13,4 @@ public class Account {
     private Integer accountNumber;
     private String accountName;
     private AccountType type;
-
-    public AccountEntity toEntity() {
-        return new AccountEntity(id, accountNumber, accountName, type.getDescription());
-    }
 }

@@ -20,7 +20,6 @@ import java.util.Collections;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 public class UserEntity implements UserDetails {
     @Serial
     private static final long serialVersionUID = 0L;

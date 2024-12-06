@@ -10,9 +10,9 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 public class BalanceSheet {
-    private Long id;
+    private long id;
     private int month;
-    private Integer year;
+    private int year;
     private Company company;
     private BalanceStatus status;
     private Account account;

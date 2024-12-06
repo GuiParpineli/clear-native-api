@@ -16,7 +16,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Setter
 public class CompositionEntity {
     @Id
     @GeneratedValue

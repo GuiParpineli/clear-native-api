@@ -47,6 +47,7 @@ public abstract class ResponsibleMapper {
                 )
         );
     }
+
     public static Responsible toModel(ResponsibleEntity entity) {
         return new Responsible(
                 entity.getName(),

@@ -31,19 +31,14 @@ public class AuthController {
         this.jwtUtil = jwtUtil;
     }
 
-    @PostMapping("/login")
+    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> login(@RequestBody UserDto userApp) {
-
-        final UserDetails userDetails = service.loadUserByUsername(userApp.username());
-        authenticationManager
-                .authenticate(new UsernamePasswordAuthenticationToken(
-                        userApp.username(),
-                        userApp.password())
-                );
-
-        final String jwt = jwtUtil.generateToken(userDetails);
+        UserDetails userDetails = service.loadUserByUsername(userApp.username());
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(userApp.username(), userApp.password())
+        );
+        String jwt = jwtUtil.generateToken(userDetails);
         TokenDto tokenDto = new TokenDto(jwt, EXPIRATION_TIME);
-
         return ResponseEntity.ok(tokenDto);
     }
 }
