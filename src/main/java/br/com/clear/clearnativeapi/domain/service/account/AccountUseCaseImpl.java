@@ -1,8 +1,7 @@
 package br.com.clear.clearnativeapi.domain.service.account;
 
 
-import br.com.clear.clearnativeapi.controller.dto.AccountDto;
-import br.com.clear.clearnativeapi.data.entity.AccountEntity;
+import br.com.clear.clearnativeapi.adapter.mapper.account.AccountMapper;
 import br.com.clear.clearnativeapi.data.repository.AccountEntityRepository;
 import br.com.clear.clearnativeapi.domain.model.Account;
 import org.springframework.stereotype.Service;
@@ -16,19 +15,18 @@ class AccountUseCaseImpl implements AccountUseCase {
     }
 
     @Override
-    public AccountDto createAccount(Account account) {
-        return repository.save(account.toEntity()).toDto();
+    public Account createAccount(Account account) {
+        return AccountMapper.toModel(repository.save(AccountMapper.toEntity(account)));
     }
 
     @Override
-    public AccountDto updateAccount(Account account) {
-        return repository.saveAndFlush(account.toEntity()).toDto();
+    public Account updateAccount(Account account) {
+        return AccountMapper.toModel(repository.saveAndFlush(AccountMapper.toEntity(account)));
     }
 
     @Override
-    public AccountDto getAccountById(Long id) {
-        return repository.findById(id).map(AccountEntity::toDto)
-                .orElse(null);
+    public Account getAccountById(Long id) {
+        return repository.findById(id).map(AccountMapper::toModel).orElse(null);
     }
 
     @Override

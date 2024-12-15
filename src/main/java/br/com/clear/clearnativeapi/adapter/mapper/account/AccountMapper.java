@@ -23,4 +23,13 @@ public abstract class AccountMapper {
                 AccountType.valueOf(account.getType())
         );
     }
+
+    public static AccountEntity toEntity(Account account) {
+        return new AccountEntity(
+                account.getId(),
+                account.getAccountNumber(),
+                account.getAccountName(),
+                account.getType().name()
+        );
+    }
 }

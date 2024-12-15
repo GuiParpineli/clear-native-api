@@ -1,7 +1,10 @@
 package br.com.clear.clearnativeapi.data.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.util.Objects;
@@ -11,8 +14,6 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString
-@RequiredArgsConstructor
 public class ResponsibleEntity {
     @Id
     @GeneratedValue
