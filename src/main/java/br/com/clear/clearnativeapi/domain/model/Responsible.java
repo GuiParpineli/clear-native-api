@@ -1,7 +1,6 @@
 package br.com.clear.clearnativeapi.domain.model;
 
 
-import br.com.clear.clearnativeapi.data.entity.ResponsibleEntity;
 import br.com.clear.clearnativeapi.domain.enums.Role;
 import lombok.Data;
 
@@ -22,5 +21,9 @@ public class Responsible {
         this.company = company;
         this.role = role;
         this.user = user;
+    }
+
+    public Responsible(Long id) {
+        this.id = id;
     }
 }

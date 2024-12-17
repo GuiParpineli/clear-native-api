@@ -27,6 +27,10 @@ public class ResponsibleEntity {
     @OneToOne
     private UserEntity userEntity;
 
+    public ResponsibleEntity(Long id) {
+        this.id = id;
+    }
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;

@@ -4,7 +4,6 @@ import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.controller.dto.CompanyDto;
 import br.com.clear.clearnativeapi.controller.dto.CompositionDto;
 import br.com.clear.clearnativeapi.controller.dto.ResponsibleDto;
-import br.com.clear.clearnativeapi.data.entity.BalanceSheetEntity;
 import br.com.clear.clearnativeapi.data.repository.BalanceSheetEntityRepository;
 import br.com.clear.clearnativeapi.domain.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
@@ -24,8 +23,8 @@ class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public Optional<BalanceSheet> createBalance(BalanceSheet request) {
-        return Optional.empty();
+    public Long createBalance(BalanceSheet request) {
+        return repository.save(BalanceSheetMapper.toEntity(request)).getId();
     }
 
     @Override
@@ -99,7 +98,7 @@ class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public List<BalanceSheet> getBalanceByCompanyDtoAndMonth(CompanyDto CompanyDto, String month) {
+    public List<BalanceSheet> getBalanceByCompanyDtoAndMonthAndYear(Long companyId, Integer month, Integer year) {
         return List.of();
     }
 

@@ -1,7 +1,6 @@
 package br.com.clear.clearnativeapi.domain.model;
 
 
-import br.com.clear.clearnativeapi.data.entity.AccountEntity;
 import br.com.clear.clearnativeapi.domain.enums.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,4 +12,8 @@ public class Account {
     private Integer accountNumber;
     private String accountName;
     private AccountType type;
+
+    public Account(Long id) {
+        this.id = id;
+    }
 }

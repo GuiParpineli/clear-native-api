@@ -19,4 +19,8 @@ public class AccountEntity {
     private Integer accountNumber;
     private String accountName;
     private String type;
+
+    public AccountEntity(Long id) {
+        this.id = id;
+    }
 }

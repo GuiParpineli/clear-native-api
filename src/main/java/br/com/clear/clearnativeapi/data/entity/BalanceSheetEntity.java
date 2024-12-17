@@ -1,12 +1,12 @@
 package br.com.clear.clearnativeapi.data.entity;
 
-import br.com.clear.clearnativeapi.controller.dto.BalanceSheetDto;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "balance_sheet")
@@ -26,4 +26,8 @@ public class BalanceSheetEntity {
     private AccountEntity account;
     @OneToMany(mappedBy = "balanceSheet", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<CompositionEntity> compositions = new LinkedHashSet<>();
+
+    public BalanceSheetEntity(Long id) {
+        this.id = id;
+    }
 }

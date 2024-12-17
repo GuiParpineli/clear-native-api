@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BalanceUseCase {
-    Optional<BalanceSheet> createBalance(BalanceSheet request);
+    Long createBalance(BalanceSheet request);
 
     void updateBalance(BalanceSheet request);
 
@@ -42,7 +42,7 @@ public interface BalanceUseCase {
 
     BalanceSheet getBalanceByCompanyDtoAndStatus(CompanyDto CompanyDto, BalanceStatus balanceStatus);
 
-    List<BalanceSheet> getBalanceByCompanyDtoAndMonth(CompanyDto CompanyDto, String month);
+    List<BalanceSheet> getBalanceByCompanyDtoAndMonthAndYear(Long companyId, Integer month, Integer year);
 
     List<BalanceSheet> getBalanceByCompanyDtoAndYear(CompanyDto CompanyDto, Integer year);
 
