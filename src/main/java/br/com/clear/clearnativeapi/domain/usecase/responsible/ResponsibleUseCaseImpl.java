@@ -5,11 +5,10 @@ import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.repository.responsible.ResponsibleRepository;
 import br.com.clear.clearnativeapi.web.controller.dto.ResponsibleDto;
 
-
 public class ResponsibleUseCaseImpl implements ResponsibleUseCase {
     private final ResponsibleRepository repository;
 
-    ResponsibleUseCaseImpl(ResponsibleRepository repository) {
+    public ResponsibleUseCaseImpl(ResponsibleRepository repository) {
         this.repository = repository;
     }
 
