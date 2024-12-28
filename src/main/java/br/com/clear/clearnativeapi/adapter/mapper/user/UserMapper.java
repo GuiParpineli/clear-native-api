@@ -1,6 +1,6 @@
 package br.com.clear.clearnativeapi.adapter.mapper.user;
 
-import br.com.clear.clearnativeapi.data.entity.UserEntity;
+import br.com.clear.clearnativeapi.infrastructure.entity.UserEntity;
 import br.com.clear.clearnativeapi.domain.model.User;
 
 public abstract class UserMapper {

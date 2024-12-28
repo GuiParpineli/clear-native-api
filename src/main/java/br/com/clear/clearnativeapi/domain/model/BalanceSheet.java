@@ -1,7 +1,7 @@
 package br.com.clear.clearnativeapi.domain.model;
 
 
-import br.com.clear.clearnativeapi.domain.enums.BalanceStatus;
+import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

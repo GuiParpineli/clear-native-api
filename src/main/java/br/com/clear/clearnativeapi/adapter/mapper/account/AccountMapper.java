@@ -1,8 +1,8 @@
 package br.com.clear.clearnativeapi.adapter.mapper.account;
 
-import br.com.clear.clearnativeapi.controller.dto.AccountDto;
-import br.com.clear.clearnativeapi.data.entity.AccountEntity;
-import br.com.clear.clearnativeapi.domain.enums.AccountType;
+import br.com.clear.clearnativeapi.web.controller.dto.AccountDto;
+import br.com.clear.clearnativeapi.infrastructure.entity.AccountEntity;
+import br.com.clear.clearnativeapi.domain.model.enums.AccountType;
 import br.com.clear.clearnativeapi.domain.model.Account;
 
 public abstract class AccountMapper {

@@ -2,10 +2,10 @@ package br.com.clear.clearnativeapi.adapter.mapper.composition;
 
 import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.adapter.mapper.responsible.ResponsibleMapper;
-import br.com.clear.clearnativeapi.controller.dto.CompositionDto;
-import br.com.clear.clearnativeapi.data.entity.BalanceSheetEntity;
-import br.com.clear.clearnativeapi.data.entity.CompositionEntity;
-import br.com.clear.clearnativeapi.data.entity.ResponsibleEntity;
+import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
+import br.com.clear.clearnativeapi.infrastructure.entity.BalanceSheetEntity;
+import br.com.clear.clearnativeapi.infrastructure.entity.CompositionEntity;
+import br.com.clear.clearnativeapi.infrastructure.entity.ResponsibleEntity;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Composition;
 import br.com.clear.clearnativeapi.domain.model.Responsible;

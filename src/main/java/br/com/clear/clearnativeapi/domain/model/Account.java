@@ -1,7 +1,7 @@
 package br.com.clear.clearnativeapi.domain.model;
 
 
-import br.com.clear.clearnativeapi.domain.enums.AccountType;
+import br.com.clear.clearnativeapi.domain.model.enums.AccountType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

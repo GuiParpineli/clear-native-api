@@ -2,10 +2,10 @@ package br.com.clear.clearnativeapi.adapter.mapper.responsible;
 
 import br.com.clear.clearnativeapi.adapter.mapper.company.CompanyMapper;
 import br.com.clear.clearnativeapi.adapter.mapper.user.UserMapper;
-import br.com.clear.clearnativeapi.controller.dto.ResponsibleDto;
-import br.com.clear.clearnativeapi.controller.dto.request.CreateResponsibleDto;
-import br.com.clear.clearnativeapi.data.entity.ResponsibleEntity;
-import br.com.clear.clearnativeapi.domain.enums.Role;
+import br.com.clear.clearnativeapi.web.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.dto.request.CreateResponsibleDto;
+import br.com.clear.clearnativeapi.infrastructure.entity.ResponsibleEntity;
+import br.com.clear.clearnativeapi.domain.model.enums.Role;
 import br.com.clear.clearnativeapi.domain.model.Company;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.model.User;

@@ -1,7 +1,7 @@
 package br.com.clear.clearnativeapi.adapter.mapper.address;
 
-import br.com.clear.clearnativeapi.controller.dto.AddressDto;
-import br.com.clear.clearnativeapi.data.entity.AddressEntity;
+import br.com.clear.clearnativeapi.web.controller.dto.AddressDto;
+import br.com.clear.clearnativeapi.infrastructure.entity.AddressEntity;
 import br.com.clear.clearnativeapi.domain.model.Address;
 
 public abstract class AddressMapper {

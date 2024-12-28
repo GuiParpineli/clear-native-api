@@ -1,8 +1,8 @@
 package br.com.clear.clearnativeapi.adapter.mapper.company;
 
 import br.com.clear.clearnativeapi.adapter.mapper.address.AddressMapper;
-import br.com.clear.clearnativeapi.controller.dto.CompanyDto;
-import br.com.clear.clearnativeapi.data.entity.CompanyEntity;
+import br.com.clear.clearnativeapi.web.controller.dto.CompanyDto;
+import br.com.clear.clearnativeapi.infrastructure.entity.CompanyEntity;
 import br.com.clear.clearnativeapi.domain.model.Company;
 
 public abstract class CompanyMapper {

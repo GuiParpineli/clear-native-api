@@ -1,7 +1,7 @@
 package br.com.clear.clearnativeapi.domain.model;
 
 
-import br.com.clear.clearnativeapi.domain.enums.Role;
+import br.com.clear.clearnativeapi.domain.model.enums.Role;
 import lombok.Data;
 
 @Data
