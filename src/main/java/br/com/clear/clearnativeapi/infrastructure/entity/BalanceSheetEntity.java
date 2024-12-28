@@ -17,11 +17,11 @@ public class BalanceSheetEntity {
     @Id
     @GeneratedValue
     private Long id;
-    private Integer month;
-    private Integer year;
+    private int month;
+    private int year;
+    private String status;
     @OneToOne(fetch = FetchType.EAGER)
     private CompanyEntity company;
-    private String status;
     @OneToOne(fetch = FetchType.EAGER)
     private AccountEntity account;
     @OneToMany(mappedBy = "balanceSheet", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)

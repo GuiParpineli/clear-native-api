@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "company")
-@AllArgsConstructor
 @NoArgsConstructor
 @Getter
 public final class CompanyEntity {
@@ -20,6 +19,14 @@ public final class CompanyEntity {
     private String phone;
     @OneToOne
     private AddressEntity address;
+
+    public CompanyEntity(String name, String cnpj, String email, String phone, AddressEntity address) {
+        this.name = name;
+        this.cnpj = cnpj;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+    }
 
     public CompanyEntity(Long id) {
         this.id = id;

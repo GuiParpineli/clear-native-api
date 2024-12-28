@@ -34,8 +34,8 @@ public abstract class BalanceSheetMapper {
                 entity.getId(),
                 entity.getMonth(),
                 entity.getYear(),
-                CompanyMapper.toModel(entity.getCompany()),
                 BalanceStatus.valueOf(entity.getStatus()),
+                CompanyMapper.toModel(entity.getCompany()),
                 AccountMapper.toModel(entity.getAccount()),
                 entity.getCompositions().stream().map(CompositionsMapper::toModel).collect(Collectors.toSet())
         );
@@ -60,8 +60,8 @@ public abstract class BalanceSheetMapper {
                 request.getId(),
                 request.getMonth(),
                 request.getYear(),
-                company,
                 request.getStatus().name(),
+                company,
                 account,
                 request.getCompositions().stream().map(CompositionsMapper::toEntity).collect(Collectors.toSet())
         );

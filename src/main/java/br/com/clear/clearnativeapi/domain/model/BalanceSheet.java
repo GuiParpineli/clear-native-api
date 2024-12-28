@@ -15,8 +15,8 @@ public class BalanceSheet {
     private long id;
     private int month;
     private int year;
-    private Company company;
     private BalanceStatus status;
+    private Company company;
     private Account account;
     private Set<Composition> compositions;
 

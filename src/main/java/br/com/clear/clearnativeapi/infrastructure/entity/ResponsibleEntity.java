@@ -21,9 +21,9 @@ public class ResponsibleEntity {
     private String name;
     private String email;
     private String phone;
+    private String role;
     @OneToOne
     private CompanyEntity company;
-    private String role;
     @OneToOne
     private UserEntity userEntity;
 

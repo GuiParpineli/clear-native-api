@@ -6,20 +6,20 @@ import lombok.Data;
 
 @Data
 public class Responsible {
-    private Long id;
+    private long id;
     private String name;
     private String email;
     private String phone;
-    private Company company;
     private Role role;
+    private Company company;
     private User user;
 
-    public Responsible(String name, String email, String phone, Company company, Role role, User user) {
+    public Responsible(String name, String email, String phone, Role role, Company company, User user) {
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.company = company;
         this.role = role;
+        this.company = company;
         this.user = user;
     }
 

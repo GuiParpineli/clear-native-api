@@ -16,7 +16,7 @@ public class AccountEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer accountNumber;
+    private int accountNumber;
     private String accountName;
     private String type;
 

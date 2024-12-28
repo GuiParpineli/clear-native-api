@@ -22,19 +22,20 @@ public class BalanceController {
         this.useCase = useCase;
     }
 
-
     @GetMapping
     public ResponseEntity<BalanceSheetDto> findById(@RequestParam Long id) {
         return ResponseEntity.ok(BalanceSheetMapper.toDto(useCase.getBalanceById(id)));
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<BalanceSheetDto>> getAllByCompany(@RequestParam Long companyId,
-                                                                 @RequestParam Integer month,
-                                                                 @RequestParam Integer year) {
+    public ResponseEntity<List<BalanceSheetDto>> getAllByCompany(
+            @RequestParam Long companyId, @RequestParam Integer month, @RequestParam Integer year
+    ) {
         return ResponseEntity.ok(
                 useCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year)
-                        .stream().map(BalanceSheetMapper::toDto).toList()
+                        .stream()
+                        .map(BalanceSheetMapper::toDto)
+                        .toList()
         );
     }
 

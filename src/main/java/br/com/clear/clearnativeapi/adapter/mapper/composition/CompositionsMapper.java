@@ -32,8 +32,6 @@ public abstract class CompositionsMapper {
         return new Composition(
                 compositionEntity.getId(),
                 compositionEntity.getTaxNoteNumber(),
-                compositionEntity.getEmissionDate(),
-                compositionEntity.getDueDate(),
                 compositionEntity.getIss(),
                 compositionEntity.getInss(),
                 compositionEntity.getIrrf(),
@@ -42,7 +40,9 @@ public abstract class CompositionsMapper {
                 compositionEntity.getDebit(),
                 compositionEntity.getHistory(),
                 ResponsibleMapper.toModel(compositionEntity.getResponsible()),
-                BalanceSheetMapper.toModel(compositionEntity.getBalanceSheet())
+                BalanceSheetMapper.toModel(compositionEntity.getBalanceSheet()),
+                compositionEntity.getEmissionDate(),
+                compositionEntity.getDueDate()
         );
     }
 
@@ -50,8 +50,6 @@ public abstract class CompositionsMapper {
         return new Composition(
                 compositionEntity.id(),
                 compositionEntity.taxNoteNumber(),
-                compositionEntity.emissionDate(),
-                compositionEntity.dueDate(),
                 compositionEntity.iss(),
                 compositionEntity.inss(),
                 compositionEntity.irrf(),
@@ -60,7 +58,9 @@ public abstract class CompositionsMapper {
                 compositionEntity.debit(),
                 compositionEntity.history(),
                 new Responsible(compositionEntity.responsible().id()),
-                new BalanceSheet()
+                new BalanceSheet(),
+                compositionEntity.emissionDate(),
+                compositionEntity.dueDate()
         );
     }
 
@@ -68,8 +68,6 @@ public abstract class CompositionsMapper {
         return new CompositionEntity(
                 composition.getId(),
                 composition.getTaxNoteNumber(),
-                composition.getEmissionDate(),
-                composition.getDueDate(),
                 composition.getIss(),
                 composition.getInss(),
                 composition.getIrrf(),
@@ -78,7 +76,9 @@ public abstract class CompositionsMapper {
                 composition.getDebit(),
                 composition.getHistory(),
                 new ResponsibleEntity(composition.getResponsible().getId()),
-                new BalanceSheetEntity(composition.getBalance().getId())
+                new BalanceSheetEntity(composition.getBalance().getId()),
+                composition.getEmissionDate(),
+                composition.getDueDate()
         );
     }
 }

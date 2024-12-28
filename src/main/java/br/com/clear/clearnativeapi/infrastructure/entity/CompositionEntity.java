@@ -19,9 +19,7 @@ public class CompositionEntity {
     @Id
     @GeneratedValue
     private Long id;
-    private Long taxNoteNumber;
-    private LocalDate emissionDate;
-    private LocalDate dueDate;
+    private long taxNoteNumber;
     private Double iss;
     private Double inss;
     private Double irrf;
@@ -32,9 +30,10 @@ public class CompositionEntity {
     @OneToOne
     private ResponsibleEntity responsible;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonIgnore
-    @JoinColumn(name = "balance_sheet_id")
+    @JsonIgnore @JoinColumn(name = "balance_sheet_id")
     private BalanceSheetEntity balanceSheet;
+    private LocalDate emissionDate;
+    private LocalDate dueDate;
 
     @Override
     public final boolean equals(Object o) {

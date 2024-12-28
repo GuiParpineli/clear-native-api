@@ -8,10 +8,8 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 public class Composition {
-    private Long id;
-    private Long taxNoteNumber;
-    private LocalDate emissionDate;
-    private LocalDate dueDate;
+    private long id;
+    private long taxNoteNumber;
     private Double iss;
     private Double inss;
     private Double irrf;
@@ -21,4 +19,6 @@ public class Composition {
     private String history;
     private Responsible responsible;
     private BalanceSheet balance;
+    private LocalDate emissionDate;
+    private LocalDate dueDate;
 }

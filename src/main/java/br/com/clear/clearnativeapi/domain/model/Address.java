@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Address {
-    private Long id;
+    private long id;
     private String street;
     private String number;
     private String city;
     private String state;
-    private String zipCode;
+    private int zipCode;
 }

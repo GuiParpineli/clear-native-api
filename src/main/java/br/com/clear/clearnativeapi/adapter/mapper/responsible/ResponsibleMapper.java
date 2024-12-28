@@ -27,8 +27,8 @@ public abstract class ResponsibleMapper {
                 responsible.getName(),
                 responsible.getEmail(),
                 responsible.getPhone(),
-                CompanyMapper.toEntity(responsible.getCompany()),
                 responsible.getRole().name(),
+                CompanyMapper.toEntity(responsible.getCompany()),
                 UserMapper.toEntity(responsible.getUser())
         );
     }
@@ -38,12 +38,14 @@ public abstract class ResponsibleMapper {
                 dto.name(),
                 dto.email(),
                 dto.phone(),
-                new Company(dto.companyId()),
                 Role.USER,
+                new Company(dto.companyId()),
                 new User(
+                        0L,
                         dto.name(),
                         dto.email(),
-                        dto.password()
+                        dto.password(),
+                        Role.USER
                 )
         );
     }
@@ -53,12 +55,14 @@ public abstract class ResponsibleMapper {
                 entity.getName(),
                 entity.getEmail(),
                 entity.getPhone(),
-                new Company(entity.getCompany().getId()),
                 Role.USER,
+                new Company(entity.getCompany().getId()),
                 new User(
+                        entity.getId(),
                         entity.getName(),
                         entity.getEmail(),
-                        entity.getUserEntity().getPassword()
+                        entity.getUserEntity().getPassword(),
+                        Role.valueOf(entity.getRole())
                 )
         );
     }
