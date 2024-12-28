@@ -1,6 +1,9 @@
-package br.com.clear.clearnativeapi.web.controller.dto;
+package br.com.clear.clearnativeapi.web.controller.balance.dto;
 
 import br.com.clear.clearnativeapi.infrastructure.entity.BalanceSheetEntity;
+import br.com.clear.clearnativeapi.web.controller.dto.AccountDto;
+import br.com.clear.clearnativeapi.web.controller.dto.CompanyDto;
+import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
 
 import java.io.Serializable;
 import java.util.Set;

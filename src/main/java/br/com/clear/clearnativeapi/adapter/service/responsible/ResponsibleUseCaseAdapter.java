@@ -5,7 +5,7 @@ import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.repository.responsible.ResponsibleRepository;
 import br.com.clear.clearnativeapi.domain.usecase.responsible.ResponsibleUseCase;
 import br.com.clear.clearnativeapi.domain.usecase.responsible.ResponsibleUseCaseImpl;
-import br.com.clear.clearnativeapi.web.controller.dto.request.CreateResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.CreateResponsibleDto;
 import org.springframework.stereotype.Service;
 
 @Service

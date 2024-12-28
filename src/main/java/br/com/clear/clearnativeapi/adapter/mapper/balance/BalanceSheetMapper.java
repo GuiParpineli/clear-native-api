@@ -4,7 +4,7 @@ import br.com.clear.clearnativeapi.adapter.mapper.account.AccountMapper;
 import br.com.clear.clearnativeapi.adapter.mapper.company.CompanyMapper;
 import br.com.clear.clearnativeapi.adapter.mapper.composition.CompositionsMapper;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
-import br.com.clear.clearnativeapi.web.controller.dto.BalanceSheetDto;
+import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.infrastructure.entity.AccountEntity;
 import br.com.clear.clearnativeapi.infrastructure.entity.BalanceSheetEntity;
 import br.com.clear.clearnativeapi.infrastructure.entity.CompanyEntity;

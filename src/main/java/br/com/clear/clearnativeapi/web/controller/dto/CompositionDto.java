@@ -1,6 +1,7 @@
 package br.com.clear.clearnativeapi.web.controller.dto;
 
 import br.com.clear.clearnativeapi.infrastructure.entity.CompositionEntity;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 
 import java.io.Serializable;
 import java.time.LocalDate;

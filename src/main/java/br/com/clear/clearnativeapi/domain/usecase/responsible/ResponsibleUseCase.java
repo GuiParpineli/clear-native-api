@@ -1,7 +1,7 @@
 package br.com.clear.clearnativeapi.domain.usecase.responsible;
 
 
-import br.com.clear.clearnativeapi.web.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 
 public interface ResponsibleUseCase {

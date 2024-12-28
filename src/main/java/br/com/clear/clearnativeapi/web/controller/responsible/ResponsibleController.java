@@ -2,8 +2,8 @@ package br.com.clear.clearnativeapi.web.controller.responsible;
 
 import br.com.clear.clearnativeapi.adapter.mapper.responsible.ResponsibleMapper;
 import br.com.clear.clearnativeapi.adapter.service.responsible.ResponsibleUseCaseAdapter;
-import br.com.clear.clearnativeapi.web.controller.dto.ResponsibleDto;
-import br.com.clear.clearnativeapi.web.controller.dto.request.CreateResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.CreateResponsibleDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

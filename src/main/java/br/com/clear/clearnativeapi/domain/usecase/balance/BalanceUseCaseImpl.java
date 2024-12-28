@@ -7,14 +7,14 @@ import br.com.clear.clearnativeapi.domain.model.Composition;
 import br.com.clear.clearnativeapi.domain.repository.balance.BalanceSheetRepository;
 import br.com.clear.clearnativeapi.web.controller.dto.CompanyDto;
 import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
-import br.com.clear.clearnativeapi.web.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 
 import java.util.List;
 
-class BalanceUseCaseImpl implements BalanceUseCase {
+public class BalanceUseCaseImpl implements BalanceUseCase {
     private final BalanceSheetRepository repository;
 
-    BalanceUseCaseImpl(BalanceSheetRepository repository) {
+    public BalanceUseCaseImpl(BalanceSheetRepository repository) {
         this.repository = repository;
     }
 

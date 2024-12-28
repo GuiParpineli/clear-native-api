@@ -3,7 +3,7 @@ package br.com.clear.clearnativeapi.domain.usecase.responsible;
 
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.repository.responsible.ResponsibleRepository;
-import br.com.clear.clearnativeapi.web.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 
 public class ResponsibleUseCaseImpl implements ResponsibleUseCase {
     private final ResponsibleRepository repository;

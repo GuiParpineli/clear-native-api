@@ -1,9 +1,9 @@
 package br.com.clear.clearnativeapi.web.controller.balance;
 
 import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
+import br.com.clear.clearnativeapi.adapter.service.balance.BalanceUseCaseAdapter;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
-import br.com.clear.clearnativeapi.web.controller.dto.BalanceSheetDto;
-import br.com.clear.clearnativeapi.domain.usecase.balance.BalanceUseCase;
+import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,17 +16,16 @@ import java.util.List;
 @RequestMapping(value = "public/balance", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Balance", description = "Balance operations")
 public class BalanceController {
-    private final BalanceUseCase useCase;
+    private final BalanceUseCaseAdapter useCase;
 
-    public BalanceController(BalanceUseCase useCase) {
+    public BalanceController(BalanceUseCaseAdapter useCase) {
         this.useCase = useCase;
     }
 
+
     @GetMapping
     public ResponseEntity<BalanceSheetDto> findById(@RequestParam Long id) {
-        return ResponseEntity.ok(
-                BalanceSheetMapper.toDto(useCase.getBalanceById(id).orElseThrow())
-        );
+        return ResponseEntity.ok(BalanceSheetMapper.toDto(useCase.getBalanceById(id)));
     }
 
     @GetMapping("/all")
@@ -41,7 +40,7 @@ public class BalanceController {
 
     @PostMapping
     public ResponseEntity<Void> createBalance(@RequestBody BalanceSheetRequestDto dto) {
-        Long createdId = useCase.createBalance(BalanceSheetMapper.toModel(dto));
+        Long createdId = useCase.createBalance(dto);
         return ResponseEntity.created(URI.create("/public/balance/" + createdId)).build();
     }
 }

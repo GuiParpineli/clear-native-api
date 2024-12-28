@@ -2,7 +2,7 @@ package br.com.clear.clearnativeapi.domain.usecase.balance;
 
 import br.com.clear.clearnativeapi.web.controller.dto.CompanyDto;
 import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
-import br.com.clear.clearnativeapi.web.controller.dto.ResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Company;

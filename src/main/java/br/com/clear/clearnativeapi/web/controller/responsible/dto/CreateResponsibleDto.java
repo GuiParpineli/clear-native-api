@@ -1,4 +1,4 @@
-package br.com.clear.clearnativeapi.web.controller.dto.request;
+package br.com.clear.clearnativeapi.web.controller.responsible.dto;
 
 public record CreateResponsibleDto(
         String name,
