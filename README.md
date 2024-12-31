@@ -1,6 +1,6 @@
 # Clear Native API
 
-Bem-vindo ao projeto **Clear Native API**. Este projeto é implementado seguindo os princípios de **Clean Architecture**, focando em separar responsabilidades e garantindo escalabilidade e manutenção eficiente do código.
+Bem-vindo ao projeto **Clear Native API**. Este projeto é implementado seguindo os princípios de **Clean Architecture**, focando em separar responsabilidades e garantindo escalabilidade e manutenção eficiente do código. O foco da API é usar GraalVM AOT.
 
 ## Estrutura do Projeto
 
