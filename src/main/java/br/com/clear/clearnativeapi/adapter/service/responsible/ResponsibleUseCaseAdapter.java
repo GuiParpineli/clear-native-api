@@ -6,6 +6,7 @@ import br.com.clear.clearnativeapi.domain.repository.responsible.ResponsibleRepo
 import br.com.clear.clearnativeapi.domain.usecase.responsible.ResponsibleUseCase;
 import br.com.clear.clearnativeapi.domain.usecase.responsible.ResponsibleUseCaseImpl;
 import br.com.clear.clearnativeapi.web.controller.responsible.dto.CreateResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,8 +17,8 @@ public class ResponsibleUseCaseAdapter {
         this.responsibleUseCase = new ResponsibleUseCaseImpl(repository);
     }
 
-    public Responsible createResponsible(CreateResponsibleDto dto) {
+    public ResponsibleDto createResponsible(CreateResponsibleDto dto) {
         Responsible responsible = ResponsibleMapper.toModel(dto);
-        return responsibleUseCase.createResponsible(responsible);
+        return ResponsibleMapper.toDto(responsibleUseCase.createResponsible(responsible));
     }
 }

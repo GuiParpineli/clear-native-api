@@ -1,9 +1,8 @@
 package br.com.clear.clearnativeapi.web.controller.responsible;
 
-import br.com.clear.clearnativeapi.adapter.mapper.responsible.ResponsibleMapper;
 import br.com.clear.clearnativeapi.adapter.service.responsible.ResponsibleUseCaseAdapter;
-import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 import br.com.clear.clearnativeapi.web.controller.responsible.dto.CreateResponsibleDto;
+import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,7 +24,6 @@ public class ResponsibleController {
 
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ResponsibleDto> createResponsible(@RequestBody CreateResponsibleDto dto) {
-        ResponsibleDto responsibleDto = ResponsibleMapper.toDto(useCase.createResponsible(dto));
-        return ResponseEntity.status(HttpStatus.CREATED).body(responsibleDto);
+        return ResponseEntity.status(HttpStatus.CREATED).body(useCase.createResponsible(dto));
     }
 }
