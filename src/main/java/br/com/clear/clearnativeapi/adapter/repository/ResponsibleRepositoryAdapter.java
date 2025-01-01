@@ -8,10 +8,10 @@ import br.com.clear.clearnativeapi.infrastructure.repository.responsible.Respons
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class ResponsibleRepositoryImpl implements ResponsibleRepository {
+public class ResponsibleRepositoryAdapter implements ResponsibleRepository {
     private final ResponsibleJpaRepository repository;
 
-    public ResponsibleRepositoryImpl(ResponsibleJpaRepository repository) {
+    public ResponsibleRepositoryAdapter(ResponsibleJpaRepository repository) {
         this.repository = repository;
     }
 

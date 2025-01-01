@@ -15,4 +15,11 @@ public enum BalanceStatus {
         this.description = description;
     }
 
+    public static BalanceStatus of(String description) {
+        for (BalanceStatus status : BalanceStatus.values()) {
+            if (status.description.equals(description)) return status;
+        }
+        return null;
+    }
+
 }

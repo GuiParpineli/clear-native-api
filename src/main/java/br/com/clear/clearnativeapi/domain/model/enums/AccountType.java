@@ -10,4 +10,11 @@ public enum AccountType {
     AccountType(String description) {
         this.description = description;
     }
+
+    public static AccountType of(String description) {
+        for (AccountType type : AccountType.values()) {
+            if (type.description.equals(description)) return type;
+        }
+        return null;
+    }
 }

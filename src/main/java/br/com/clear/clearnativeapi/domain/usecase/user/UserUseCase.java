@@ -1,7 +1,7 @@
 package br.com.clear.clearnativeapi.domain.usecase.user;
 
-import br.com.clear.clearnativeapi.domain.model.User;
+import br.com.clear.clearnativeapi.infrastructure.entity.UserEntity;
 
 public interface UserUseCase{
-    User loadUserByUsername(String username);
+    UserEntity loadUserByUsername(String username);
 }

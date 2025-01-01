@@ -1,7 +1,10 @@
 package br.com.clear.clearnativeapi.adapter.mapper.user;
 
+import br.com.clear.clearnativeapi.domain.model.enums.Role;
 import br.com.clear.clearnativeapi.infrastructure.entity.UserEntity;
 import br.com.clear.clearnativeapi.domain.model.User;
+
+import java.util.Optional;
 
 public abstract class UserMapper {
     public static UserEntity toEntity(User user) {
@@ -12,5 +15,15 @@ public abstract class UserMapper {
                 user.getEmail(),
                 user.getRole().name()
         );
+    }
+
+    public static User toModel(UserEntity userEntity) {
+        User user = new User();
+        user.setId(userEntity.getId());
+        user.setName(userEntity.getUsername());
+        user.setEmail(userEntity.getEmail());
+        user.setPassword(userEntity.getPassword());
+        user.setRole(Role.valueOf(userEntity.getRole()));
+        return user;
     }
 }

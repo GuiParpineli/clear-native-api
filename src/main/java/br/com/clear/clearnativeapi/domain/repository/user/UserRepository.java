@@ -1,7 +1,7 @@
 package br.com.clear.clearnativeapi.domain.repository.user;
 
-import br.com.clear.clearnativeapi.domain.model.User;
+import br.com.clear.clearnativeapi.infrastructure.entity.UserEntity;
 
 public interface UserRepository {
-    User findByUsername(String username);
+    UserEntity findByUsername(String username);
 }

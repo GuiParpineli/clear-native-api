@@ -1,6 +1,5 @@
 package br.com.clear.clearnativeapi.adapter.repository;
 
-import br.com.clear.clearnativeapi.adapter.configuration.exception.InvalidDataException;
 import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.adapter.mapper.composition.CompositionsMapper;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
@@ -15,11 +14,11 @@ import org.springframework.stereotype.Service;
 import java.util.stream.Collectors;
 
 @Service
-public class BalanceSheetRepositoryImpl implements BalanceSheetRepository {
+public class BalanceSheetRepositoryAdapter implements BalanceSheetRepository {
     private final BalanceSheetJpaRepository repository;
     private final CompanyJpaRepository companyRepository;
 
-    public BalanceSheetRepositoryImpl(BalanceSheetJpaRepository repository, CompanyJpaRepository companyRepository) {
+    public BalanceSheetRepositoryAdapter(BalanceSheetJpaRepository repository, CompanyJpaRepository companyRepository) {
         this.repository = repository;
         this.companyRepository = companyRepository;
     }
