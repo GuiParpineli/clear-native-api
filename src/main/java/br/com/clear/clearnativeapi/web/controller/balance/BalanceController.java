@@ -28,7 +28,9 @@ public class BalanceController {
 
     @GetMapping("/all")
     public ResponseEntity<List<BalanceSheetDto>> getAllByCompany(
-            @RequestParam Long companyId, @RequestParam Integer month, @RequestParam Integer year
+            @RequestParam Long companyId,
+            @RequestParam Integer month,
+            @RequestParam Integer year
     ) {
         return ResponseEntity.ok(useCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year));
     }

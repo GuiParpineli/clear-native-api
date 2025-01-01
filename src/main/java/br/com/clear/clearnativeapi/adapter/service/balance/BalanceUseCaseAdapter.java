@@ -20,7 +20,10 @@ public class BalanceUseCaseAdapter {
     }
 
     public List<BalanceSheetDto> getBalanceByCompanyDtoAndMonthAndYear(Long companyId, Integer month, Integer year) {
-        return balanceUseCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year).stream().map(BalanceSheetMapper::toDto).toList();
+        return balanceUseCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year)
+                .stream()
+                .map(BalanceSheetMapper::toDto)
+                .toList();
     }
 
     public Long createBalance(BalanceSheetRequestDto dto) {

@@ -30,7 +30,7 @@ public class BalanceSheetRepositoryImpl implements BalanceSheetRepository {
     }
 
     @Override
-    public BalanceSheet save(BalanceSheet balanceSheet) throws InvalidDataException {
+    public BalanceSheet save(BalanceSheet balanceSheet) {
         CompanyEntity companyEntity = companyRepository.findById(balanceSheet.getCompany().getId()).orElseThrow();
 
         BalanceSheetEntity entity = new BalanceSheetEntity();
