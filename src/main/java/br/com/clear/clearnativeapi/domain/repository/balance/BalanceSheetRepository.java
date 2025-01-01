@@ -1,11 +1,12 @@
 package br.com.clear.clearnativeapi.domain.repository.balance;
 
+import br.com.clear.clearnativeapi.adapter.configuration.exception.InvalidDataException;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 
 public interface BalanceSheetRepository {
     void update(BalanceSheet request);
 
-    BalanceSheet save(BalanceSheet balanceSheet);
+    BalanceSheet save(BalanceSheet balanceSheet) throws InvalidDataException;
 
     BalanceSheet findById(Long id);
 }

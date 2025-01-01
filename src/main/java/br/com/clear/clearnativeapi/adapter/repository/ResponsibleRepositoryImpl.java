@@ -1,9 +1,10 @@
-package br.com.clear.clearnativeapi.infrastructure.repository.responsible;
+package br.com.clear.clearnativeapi.adapter.repository;
 
 import br.com.clear.clearnativeapi.adapter.mapper.responsible.ResponsibleMapper;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.repository.responsible.ResponsibleRepository;
 import br.com.clear.clearnativeapi.infrastructure.entity.ResponsibleEntity;
+import br.com.clear.clearnativeapi.infrastructure.repository.responsible.ResponsibleJpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

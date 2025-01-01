@@ -1,9 +1,8 @@
 package br.com.clear.clearnativeapi.web.controller.balance;
 
-import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.adapter.service.balance.BalanceUseCaseAdapter;
-import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
+import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,19 +23,14 @@ public class BalanceController {
 
     @GetMapping
     public ResponseEntity<BalanceSheetDto> findById(@RequestParam Long id) {
-        return ResponseEntity.ok(BalanceSheetMapper.toDto(useCase.getBalanceById(id)));
+        return ResponseEntity.ok(useCase.getBalanceById(id));
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<BalanceSheetDto>> getAllByCompany(
             @RequestParam Long companyId, @RequestParam Integer month, @RequestParam Integer year
     ) {
-        return ResponseEntity.ok(
-                useCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year)
-                        .stream()
-                        .map(BalanceSheetMapper::toDto)
-                        .toList()
-        );
+        return ResponseEntity.ok(useCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year));
     }
 
     @PostMapping
