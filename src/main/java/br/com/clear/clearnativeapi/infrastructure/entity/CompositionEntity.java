@@ -27,13 +27,14 @@ public class CompositionEntity {
     private Double credit;
     private Double debit;
     private String history;
+    private LocalDate emissionDate;
+    private LocalDate dueDate;
+
     @OneToOne
     private ResponsibleEntity responsible;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore @JoinColumn(name = "balance_sheet_id")
     private BalanceSheetEntity balanceSheet;
-    private LocalDate emissionDate;
-    private LocalDate dueDate;
 
     @Override
     public final boolean equals(Object o) {

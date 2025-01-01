@@ -2,13 +2,13 @@ package br.com.clear.clearnativeapi.adapter.mapper.composition;
 
 import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.adapter.mapper.responsible.ResponsibleMapper;
-import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
-import br.com.clear.clearnativeapi.infrastructure.entity.BalanceSheetEntity;
-import br.com.clear.clearnativeapi.infrastructure.entity.CompositionEntity;
-import br.com.clear.clearnativeapi.infrastructure.entity.ResponsibleEntity;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Composition;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
+import br.com.clear.clearnativeapi.infrastructure.entity.BalanceSheetEntity;
+import br.com.clear.clearnativeapi.infrastructure.entity.CompositionEntity;
+import br.com.clear.clearnativeapi.infrastructure.entity.ResponsibleEntity;
+import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
 
 public abstract class CompositionsMapper {
     public static CompositionDto toDto(Composition compositions) {
@@ -39,10 +39,10 @@ public abstract class CompositionsMapper {
                 compositionEntity.getCredit(),
                 compositionEntity.getDebit(),
                 compositionEntity.getHistory(),
-                ResponsibleMapper.toModel(compositionEntity.getResponsible()),
-                BalanceSheetMapper.toModel(compositionEntity.getBalanceSheet()),
                 compositionEntity.getEmissionDate(),
-                compositionEntity.getDueDate()
+                compositionEntity.getDueDate(),
+                ResponsibleMapper.toModel(compositionEntity.getResponsible()),
+                BalanceSheetMapper.toModel(compositionEntity.getBalanceSheet())
         );
     }
 
@@ -57,10 +57,10 @@ public abstract class CompositionsMapper {
                 compositionEntity.credit(),
                 compositionEntity.debit(),
                 compositionEntity.history(),
-                new Responsible(compositionEntity.responsible().id()),
-                new BalanceSheet(),
                 compositionEntity.emissionDate(),
-                compositionEntity.dueDate()
+                compositionEntity.dueDate(),
+                new Responsible(compositionEntity.responsible().id()),
+                new BalanceSheet()
         );
     }
 
@@ -75,10 +75,10 @@ public abstract class CompositionsMapper {
                 composition.getCredit(),
                 composition.getDebit(),
                 composition.getHistory(),
-                new ResponsibleEntity(composition.getResponsible().getId()),
-                new BalanceSheetEntity(composition.getBalance().getId()),
                 composition.getEmissionDate(),
-                composition.getDueDate()
+                composition.getDueDate(),
+                new ResponsibleEntity(composition.getResponsible().getId()),
+                new BalanceSheetEntity(composition.getBalance().getId())
         );
     }
 }

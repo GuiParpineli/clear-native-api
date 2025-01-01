@@ -17,8 +17,8 @@ public class Composition {
     private Double credit;
     private Double debit;
     private String history;
-    private Responsible responsible;
-    private BalanceSheet balance;
     private LocalDate emissionDate;
     private LocalDate dueDate;
+    private Responsible responsible;
+    private BalanceSheet balance;
 }
