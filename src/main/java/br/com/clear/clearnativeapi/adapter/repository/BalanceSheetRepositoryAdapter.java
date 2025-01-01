@@ -35,9 +35,10 @@ public class BalanceSheetRepositoryAdapter implements BalanceSheetRepository {
         BalanceSheetEntity entity = new BalanceSheetEntity();
         entity.setMonth(balanceSheet.getMonth());
         entity.setYear(balanceSheet.getYear());
-        entity.setStatus(BalanceStatus.OPEN.getDescription());
+        entity.setStatus(BalanceStatus.OPEN.name());
         entity.setCompany(companyEntity);
-        entity.setCompositions(balanceSheet.getCompositions().stream().map(CompositionsMapper::toEntity).collect(Collectors.toSet()));
+        entity.setCompositions(balanceSheet.getCompositions().stream()
+                .map(CompositionsMapper::toEntity).collect(Collectors.toSet()));
 
         return BalanceSheetMapper.toModel(repository.save(entity));
     }
