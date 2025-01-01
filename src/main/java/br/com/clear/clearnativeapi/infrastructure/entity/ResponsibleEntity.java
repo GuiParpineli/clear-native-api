@@ -16,11 +16,15 @@ import java.util.Objects;
 @Getter
 public class ResponsibleEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(length = 50)
     private String name;
+    @Column(length = 35, nullable = false, unique = true)
     private String email;
+    @Column(length = 15)
     private String phone;
+    @Column(length = 25, nullable = false)
     private String role;
     @OneToOne
     private CompanyEntity company;

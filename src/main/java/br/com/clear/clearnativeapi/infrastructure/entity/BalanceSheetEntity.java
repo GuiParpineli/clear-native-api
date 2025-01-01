@@ -16,10 +16,11 @@ import java.util.Set;
 @Setter
 public class BalanceSheetEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private int month;
     private int year;
+    @Column(length = 15, nullable = false)
     private String status;
     @OneToOne(fetch = FetchType.EAGER)
     private CompanyEntity company;

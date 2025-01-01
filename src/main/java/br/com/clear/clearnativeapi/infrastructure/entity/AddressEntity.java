@@ -14,11 +14,16 @@ import lombok.Setter;
 @Setter
 public class AddressEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(nullable = false, length = 100)
     private String street;
+    @Column(nullable = false, length = 10)
     private String number;
+    @Column(nullable = false, length = 50)
     private String city;
+    @Column(nullable = false, length = 3)
     private String state;
+    @Column(nullable = false, length = 9)
     private int zipCode;
 }

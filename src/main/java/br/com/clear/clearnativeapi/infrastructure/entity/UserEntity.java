@@ -1,8 +1,6 @@
 package br.com.clear.clearnativeapi.infrastructure.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,10 +20,15 @@ import java.util.Collections;
 @Getter
 public class UserEntity implements UserDetails {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(unique = true, nullable = false, length = 20)
     private String username;
+    @Column(nullable = false)
     private String password;
+    @Column(nullable = false, unique = true)
     private String email;
+    @Column(nullable = false, length = 10)
     private String role;
 
     @Override

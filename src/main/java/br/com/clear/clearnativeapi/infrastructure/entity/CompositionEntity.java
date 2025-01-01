@@ -17,7 +17,7 @@ import java.util.Objects;
 @Getter
 public class CompositionEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private long taxNoteNumber;
     private Double iss;

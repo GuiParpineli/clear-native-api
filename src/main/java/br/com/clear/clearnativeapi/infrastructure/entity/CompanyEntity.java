@@ -11,11 +11,15 @@ import lombok.NoArgsConstructor;
 @Getter
 public final class CompanyEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(length = 50, nullable = false)
     private String name;
+    @Column(length = 14, unique = true, nullable = false)
     private String cnpj;
+    @Column(length = 50, nullable = false, unique = true)
     private String email;
+    @Column(length = 15, nullable = false)
     private String phone;
     @OneToOne
     private AddressEntity address;
