@@ -60,7 +60,9 @@ public class BalanceSheetRepositoryAdapter implements BalanceSheetRepository {
     @Override
     public List<BalanceSheet> findAll(Company company) {
         CompanyEntity companyEntity = companyRepository.findById(company.getId()).orElseThrow();
-        return repository.findAllByCompany(companyEntity);
+        return repository.findAllByCompany(companyEntity).stream()
+                .map(BalanceSheetMapper::toModel)
+                .toList();
     }
 
     @Override
@@ -69,12 +71,25 @@ public class BalanceSheetRepositoryAdapter implements BalanceSheetRepository {
     }
 
     @Override
-    public List<BalanceSheet> getByStatus(String status) {
-        return List.of();
+    public List<BalanceSheet> getByStatus(Company company, String status) {
+        CompanyEntity companyEntity = companyRepository.findById(company.getId()).orElseThrow();
+        return repository.findByStatus(companyEntity, status).stream()
+                .map(BalanceSheetMapper::toModel)
+                .toList();
     }
 
     @Override
     public List<BalanceSheet> getByMonth(Company company, String month) {
-        return List.of();
+        CompanyEntity companyEntity = companyRepository.findById(company.getId()).orElseThrow();
+        return repository.findByMonth(companyEntity, month).stream()
+                .map(BalanceSheetMapper::toModel)
+                .toList();
+    }
+
+    @Override
+    public List<BalanceSheet> findByMonthAndYear(Long companyId, Integer month, Integer year) {
+        return repository.findByMonthAndYear(companyId, month, year).stream()
+                .map(BalanceSheetMapper::toModel)
+                .toList();
     }
 }

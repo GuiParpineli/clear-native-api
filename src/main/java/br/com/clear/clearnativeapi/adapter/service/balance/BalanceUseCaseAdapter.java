@@ -19,8 +19,8 @@ public class BalanceUseCaseAdapter {
         this.balanceUseCase = new BalanceUseCaseImpl(repository);
     }
 
-    public List<BalanceSheetDto> getBalanceByCompanyDtoAndMonthAndYear(Long companyId, Integer month, Integer year) {
-        return balanceUseCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year)
+    public List<BalanceSheetDto> getBalanceByMonthAndYear(Long companyId, Integer month, Integer year) {
+        return balanceUseCase.getBalanceByMonthAndYear(companyId, month, year)
                 .stream()
                 .map(BalanceSheetMapper::toDto)
                 .toList();

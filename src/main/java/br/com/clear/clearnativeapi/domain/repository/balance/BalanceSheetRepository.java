@@ -19,7 +19,9 @@ public interface BalanceSheetRepository {
 
     BalanceSheet getBalanceByResponsible(Responsible responsible);
 
-    List<BalanceSheet> getByStatus(String status);
+    List<BalanceSheet> getByStatus(Company company, String status);
 
     List<BalanceSheet> getByMonth(Company company, String month);
+
+    List<BalanceSheet> findByMonthAndYear(Long companyId, Integer month, Integer year);
 }

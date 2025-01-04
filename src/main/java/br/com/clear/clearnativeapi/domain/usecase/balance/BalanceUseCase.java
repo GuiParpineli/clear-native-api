@@ -27,7 +27,7 @@ public interface BalanceUseCase {
 
     BalanceSheet getBalanceByResponsible(Responsible request);
 
-    List<BalanceSheet> getBalanceByStatus(String status);
+    List<BalanceSheet> getBalanceByStatus(Company company, String status);
 
     List<BalanceSheet> getBalanceByMonth(Company company, String month);
 
@@ -37,7 +37,7 @@ public interface BalanceUseCase {
 
     BalanceSheet getBalanceByCompanyDtoAndStatus(Company company, BalanceStatus balanceStatus);
 
-    List<BalanceSheet> getBalanceByCompanyDtoAndMonthAndYear(Long companyId, Integer month, Integer year);
+    List<BalanceSheet> getBalanceByMonthAndYear(Long companyId, Integer month, Integer year);
 
     List<BalanceSheet> getBalanceByCompanyDtoAndYear(Company company, Integer year);
 

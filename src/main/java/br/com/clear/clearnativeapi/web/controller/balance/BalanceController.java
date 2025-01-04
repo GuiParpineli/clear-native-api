@@ -32,7 +32,7 @@ public class BalanceController {
             @RequestParam Integer month,
             @RequestParam Integer year
     ) {
-        return ResponseEntity.ok(useCase.getBalanceByCompanyDtoAndMonthAndYear(companyId, month, year));
+        return ResponseEntity.ok(useCase.getBalanceByMonthAndYear(companyId, month, year));
     }
 
     @PostMapping

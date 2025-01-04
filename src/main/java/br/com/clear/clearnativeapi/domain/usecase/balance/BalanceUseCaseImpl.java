@@ -73,8 +73,8 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public List<BalanceSheet> getBalanceByStatus(String status) {
-        return repository.getByStatus(status);
+    public List<BalanceSheet> getBalanceByStatus(Company company, String status) {
+        return repository.getByStatus(company, status);
     }
 
     @Override
@@ -98,8 +98,8 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public List<BalanceSheet> getBalanceByCompanyDtoAndMonthAndYear(Long companyId, Integer month, Integer year) {
-        return List.of();
+    public List<BalanceSheet> getBalanceByMonthAndYear(Long companyId, Integer month, Integer year) {
+        return repository.findByMonthAndYear(companyId, month, year);
     }
 
     @Override
