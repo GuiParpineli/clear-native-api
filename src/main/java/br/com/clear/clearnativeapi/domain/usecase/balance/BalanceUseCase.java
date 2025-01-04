@@ -1,12 +1,10 @@
 package br.com.clear.clearnativeapi.domain.usecase.balance;
 
-import br.com.clear.clearnativeapi.web.controller.dto.CompanyDto;
-import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
-import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
-import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Company;
 import br.com.clear.clearnativeapi.domain.model.Composition;
+import br.com.clear.clearnativeapi.domain.model.Responsible;
+import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 
 import java.util.List;
 
@@ -17,41 +15,39 @@ public interface BalanceUseCase {
 
     void closeBalance(BalanceSheet request);
 
-    void reopenCloseBalance(BalanceSheet request, ResponsibleDto ResponsibleDto);
+    void reopenCloseBalance(BalanceSheet request, Responsible responsible);
 
-    void deleteBalance(BalanceSheet request, ResponsibleDto ResponsibleDto);
+    void deleteBalance(BalanceSheet request, Responsible responsible);
 
-    void addComposition(Long balanceId, CompositionDto composition, BalanceStatus status);
+    void addComposition(Composition composition);
 
     BalanceSheet getBalanceById(Long id);
 
-    List<BalanceSheet> getBalances(CompanyDto request);
+    List<BalanceSheet> getBalances(Company request);
 
-    BalanceSheet getBalanceByResponsibleDto(ResponsibleDto request);
-
-    BalanceSheet getBalanceByAccountType(String type);
+    BalanceSheet getBalanceByResponsible(Responsible request);
 
     List<BalanceSheet> getBalanceByStatus(String status);
 
-    List<BalanceSheet> getBalanceByMonth(CompanyDto CompanyDto, String month);
+    List<BalanceSheet> getBalanceByMonth(Company company, String month);
 
-    BalanceSheet getBalanceByComposition(CompanyDto CompanyDto, CompositionDto composition);
+    BalanceSheet getBalanceByComposition(Company company, Composition composition);
 
-    BalanceSheet getBalanceByCompanyDtoAndResponsibleDto(CompanyDto request, ResponsibleDto ResponsibleDto);
+    BalanceSheet getBalanceByCompanyDtoAndResponsibleDto(Company request, Responsible responsible);
 
-    BalanceSheet getBalanceByCompanyDtoAndStatus(CompanyDto CompanyDto, BalanceStatus balanceStatus);
+    BalanceSheet getBalanceByCompanyDtoAndStatus(Company company, BalanceStatus balanceStatus);
 
     List<BalanceSheet> getBalanceByCompanyDtoAndMonthAndYear(Long companyId, Integer month, Integer year);
 
-    List<BalanceSheet> getBalanceByCompanyDtoAndYear(CompanyDto CompanyDto, Integer year);
+    List<BalanceSheet> getBalanceByCompanyDtoAndYear(Company company, Integer year);
 
-    BalanceSheet getBalanceByResponsibleDtoAndStatus(ResponsibleDto ResponsibleDto, BalanceStatus balanceStatus);
+    BalanceSheet getBalanceByResponsibleDtoAndStatus(Responsible responsible, BalanceStatus balanceStatus);
 
-    BalanceSheet getBalanceByResponsibleDtoAndMonth(ResponsibleDto ResponsibleDto, String month);
+    BalanceSheet getBalanceByResponsibleDtoAndMonth(Responsible responsible, String month);
 
-    BalanceSheet getBalanceByResponsibleDtoAndYear(ResponsibleDto ResponsibleDto, Integer year);
+    BalanceSheet getBalanceByResponsibleDtoAndYear(Responsible responsible, Integer year);
 
-    List<BalanceSheet> getBalanceByYear(Company Company, Integer year);
+    List<BalanceSheet> getBalanceByYear(Company company, Integer year);
 
     void deleteComposition(Composition composition);
 }

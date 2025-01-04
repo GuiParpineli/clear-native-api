@@ -1,13 +1,12 @@
 package br.com.clear.clearnativeapi.domain.usecase.balance;
 
-import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Company;
 import br.com.clear.clearnativeapi.domain.model.Composition;
+import br.com.clear.clearnativeapi.domain.model.Responsible;
+import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
+import br.com.clear.clearnativeapi.domain.model.enums.Role;
 import br.com.clear.clearnativeapi.domain.repository.balance.BalanceSheetRepository;
-import br.com.clear.clearnativeapi.web.controller.dto.CompanyDto;
-import br.com.clear.clearnativeapi.web.controller.dto.CompositionDto;
-import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 
 import java.util.List;
 
@@ -20,6 +19,7 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
 
     @Override
     public BalanceSheet createBalance(BalanceSheet balance) {
+        balance.setStatus(BalanceStatus.OPEN);
         return repository.save(balance);
     }
 
@@ -30,22 +30,31 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
 
     @Override
     public void closeBalance(BalanceSheet request) {
-
+        request.setStatus(BalanceStatus.CLOSED);
+        repository.update(request);
     }
 
     @Override
-    public void reopenCloseBalance(BalanceSheet request, ResponsibleDto ResponsibleDto) {
-
+    public void reopenCloseBalance(BalanceSheet request, Responsible responsible) {
+        if (request.getStatus() == BalanceStatus.PENDENT_REOPEN && responsible.getRole().isAdminOrSuper()) {
+            request.setStatus(BalanceStatus.PROGRESS);
+            repository.update(request);
+        }
     }
 
     @Override
-    public void deleteBalance(BalanceSheet request, ResponsibleDto ResponsibleDto) {
-
+    public void deleteBalance(BalanceSheet request, Responsible responsible) {
+        if (responsible.getRole() == Role.ADMIN || (responsible.getRole().isAdminOrSuper())) {
+            repository.delete(request);
+        }
     }
 
     @Override
-    public void addComposition(Long balanceId, CompositionDto composition, BalanceStatus status) {
-
+    public void addComposition(Composition composition) {
+        BalanceSheet balance = getBalanceById(composition.getBalance().getId());
+        balance.getCompositions().add(composition);
+        balance.setStatus(BalanceStatus.PROGRESS);
+        repository.update(balance);
     }
 
     @Override
@@ -54,42 +63,37 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public List<BalanceSheet> getBalances(CompanyDto request) {
-        return List.of();
+    public List<BalanceSheet> getBalances(Company company) {
+        return repository.findAll(company);
     }
 
     @Override
-    public BalanceSheet getBalanceByResponsibleDto(ResponsibleDto request) {
-        return null;
-    }
-
-    @Override
-    public BalanceSheet getBalanceByAccountType(String type) {
-        return null;
+    public BalanceSheet getBalanceByResponsible(Responsible responsible) {
+        return repository.getBalanceByResponsible(responsible);
     }
 
     @Override
     public List<BalanceSheet> getBalanceByStatus(String status) {
-        return List.of();
+        return repository.getByStatus(status);
     }
 
     @Override
-    public List<BalanceSheet> getBalanceByMonth(CompanyDto CompanyDto, String month) {
-        return List.of();
+    public List<BalanceSheet> getBalanceByMonth(Company company, String month) {
+        return repository.getByMonth(company, month);
     }
 
     @Override
-    public BalanceSheet getBalanceByComposition(CompanyDto CompanyDto, CompositionDto composition) {
+    public BalanceSheet getBalanceByComposition(Company company, Composition composition) {
         return null;
     }
 
     @Override
-    public BalanceSheet getBalanceByCompanyDtoAndResponsibleDto(CompanyDto request, ResponsibleDto ResponsibleDto) {
+    public BalanceSheet getBalanceByCompanyDtoAndResponsibleDto(Company request, Responsible responsible) {
         return null;
     }
 
     @Override
-    public BalanceSheet getBalanceByCompanyDtoAndStatus(CompanyDto CompanyDto, BalanceStatus balanceStatus) {
+    public BalanceSheet getBalanceByCompanyDtoAndStatus(Company company, BalanceStatus balanceStatus) {
         return null;
     }
 
@@ -99,22 +103,22 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public List<BalanceSheet> getBalanceByCompanyDtoAndYear(CompanyDto CompanyDto, Integer year) {
+    public List<BalanceSheet> getBalanceByCompanyDtoAndYear(Company company, Integer year) {
         return List.of();
     }
 
     @Override
-    public BalanceSheet getBalanceByResponsibleDtoAndStatus(ResponsibleDto ResponsibleDto, BalanceStatus balanceStatus) {
+    public BalanceSheet getBalanceByResponsibleDtoAndStatus(Responsible responsible, BalanceStatus balanceStatus) {
         return null;
     }
 
     @Override
-    public BalanceSheet getBalanceByResponsibleDtoAndMonth(ResponsibleDto ResponsibleDto, String month) {
+    public BalanceSheet getBalanceByResponsibleDtoAndMonth(Responsible responsible, String month) {
         return null;
     }
 
     @Override
-    public BalanceSheet getBalanceByResponsibleDtoAndYear(ResponsibleDto ResponsibleDto, Integer year) {
+    public BalanceSheet getBalanceByResponsibleDtoAndYear(Responsible responsible, Integer year) {
         return null;
     }
 
