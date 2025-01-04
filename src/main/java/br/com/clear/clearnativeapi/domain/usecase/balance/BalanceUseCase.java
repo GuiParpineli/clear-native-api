@@ -25,8 +25,6 @@ public interface BalanceUseCase {
 
     List<BalanceSheet> getBalances(Company request);
 
-    BalanceSheet getBalanceByResponsible(Responsible request);
-
     List<BalanceSheet> getBalanceByStatus(Company company, String status);
 
     List<BalanceSheet> getBalanceByMonth(Company company, String month);

@@ -4,7 +4,6 @@ import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.adapter.mapper.composition.CompositionsMapper;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Company;
-import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.repository.balance.BalanceSheetRepository;
 import br.com.clear.clearnativeapi.infrastructure.entity.BalanceSheetEntity;
 import br.com.clear.clearnativeapi.infrastructure.entity.CompanyEntity;
@@ -63,11 +62,6 @@ public class BalanceSheetRepositoryAdapter implements BalanceSheetRepository {
         return repository.findAllByCompany(companyEntity).stream()
                 .map(BalanceSheetMapper::toModel)
                 .toList();
-    }
-
-    @Override
-    public BalanceSheet getBalanceByResponsible(Responsible responsible) {
-        return null;
     }
 
     @Override

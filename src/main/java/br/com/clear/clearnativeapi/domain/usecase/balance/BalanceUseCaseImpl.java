@@ -68,11 +68,6 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public BalanceSheet getBalanceByResponsible(Responsible responsible) {
-        return repository.getBalanceByResponsible(responsible);
-    }
-
-    @Override
     public List<BalanceSheet> getBalanceByStatus(Company company, String status) {
         return repository.getByStatus(company, status);
     }
