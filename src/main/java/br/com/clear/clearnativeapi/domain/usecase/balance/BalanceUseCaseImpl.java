@@ -7,6 +7,7 @@ import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.enums.Role;
 import br.com.clear.clearnativeapi.domain.repository.BalanceSheetRepository;
+import org.springframework.expression.AccessException;
 
 import java.util.List;
 
@@ -29,9 +30,12 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public void closeBalance(BalanceSheet request) {
-        request.setStatus(BalanceStatus.CLOSED);
-        repository.update(request);
+    public void closeBalance(Long companyID, Long balanceId) throws AccessException {
+        BalanceSheet balance = repository.findById(balanceId);
+        if (balance.getCompany().getId() != companyID)
+            throw new AccessException("Failed,company does not belong to balance sheet");
+        balance.setStatus(BalanceStatus.CLOSED);
+        repository.update(balance);
     }
 
     @Override

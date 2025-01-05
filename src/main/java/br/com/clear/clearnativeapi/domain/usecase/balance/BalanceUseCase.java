@@ -5,6 +5,7 @@ import br.com.clear.clearnativeapi.domain.model.Company;
 import br.com.clear.clearnativeapi.domain.model.Composition;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
+import org.springframework.expression.AccessException;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ public interface BalanceUseCase {
 
     void updateBalance(BalanceSheet request);
 
-    void closeBalance(BalanceSheet request);
+    void closeBalance(Long companyID, Long balanceId) throws AccessException;
 
     void reopenCloseBalance(BalanceSheet request, Responsible responsible);
 

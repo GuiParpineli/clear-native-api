@@ -3,6 +3,7 @@ package br.com.clear.clearnativeapi.web.controller.balance;
 import br.com.clear.clearnativeapi.adapter.service.BalanceUseCaseAdapter;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
+import br.com.clear.clearnativeapi.web.shared.dto.DefaultSuccessDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,13 +23,13 @@ public class BalanceController {
     }
 
     @GetMapping
-    public ResponseEntity<BalanceSheetDto> findById(@RequestParam Long id) {
+    public ResponseEntity<BalanceSheetDto> findById(@RequestHeader Long companyID, @RequestParam Long id) {
         return ResponseEntity.ok(useCase.getBalanceById(id));
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<BalanceSheetDto>> getAllByCompany(
-            @RequestParam Long companyId,
+            @RequestHeader Long companyId,
             @RequestParam Integer month,
             @RequestParam Integer year
     ) {
@@ -36,8 +37,18 @@ public class BalanceController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createBalance(@RequestBody BalanceSheetRequestDto dto) {
-        Long createdId = useCase.createBalance(dto);
+    public ResponseEntity<Void> createBalance(@RequestHeader Long companyId, @RequestBody BalanceSheetRequestDto dto) {
+        Long createdId = useCase.createBalance(companyId, dto);
         return ResponseEntity.created(URI.create("/public/balance/" + createdId)).build();
+    }
+
+    @PatchMapping("/update")
+    public ResponseEntity<DefaultSuccessDto> updateBalance(@RequestHeader Long companyId, @RequestBody BalanceSheetRequestDto dto) {
+        return ResponseEntity.ok(useCase.updateBalance(companyId, dto));
+    }
+
+    @PatchMapping("/close")
+    public ResponseEntity<DefaultSuccessDto> closeBalance(@RequestHeader Long companyID, @RequestParam Long id) {
+        return ResponseEntity.ok(useCase.closeBalance(companyID, id));
     }
 }

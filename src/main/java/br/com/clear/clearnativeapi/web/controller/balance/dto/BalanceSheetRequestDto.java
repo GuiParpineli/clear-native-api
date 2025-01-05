@@ -7,7 +7,6 @@ import java.util.List;
 public record BalanceSheetRequestDto(
         Integer month,
         Integer year,
-        Long companyId,
         Long accountId,
         List<CompositionDto> compositions
 ) {

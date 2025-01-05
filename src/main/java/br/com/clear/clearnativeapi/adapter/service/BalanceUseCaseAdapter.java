@@ -7,10 +7,15 @@ import br.com.clear.clearnativeapi.domain.usecase.balance.BalanceUseCase;
 import br.com.clear.clearnativeapi.domain.usecase.balance.BalanceUseCaseImpl;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
+import br.com.clear.clearnativeapi.web.shared.dto.DefaultSuccessDto;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.expression.AccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class BalanceUseCaseAdapter {
     private final BalanceUseCase balanceUseCase;
@@ -26,12 +31,28 @@ public class BalanceUseCaseAdapter {
                 .toList();
     }
 
-    public Long createBalance(BalanceSheetRequestDto dto) {
-        BalanceSheet model = BalanceSheetMapper.toModel(dto);
+    public Long createBalance(Long companyId, BalanceSheetRequestDto dto) {
+        BalanceSheet model = BalanceSheetMapper.toModel(companyId, dto);
         return balanceUseCase.createBalance(model).getId();
     }
 
     public BalanceSheetDto getBalanceById(Long id) {
         return BalanceSheetMapper.toDto(balanceUseCase.getBalanceById(id));
+    }
+
+    public DefaultSuccessDto updateBalance(Long companyId, BalanceSheetRequestDto dto) {
+        BalanceSheet model = BalanceSheetMapper.toModel(companyId, dto);
+        balanceUseCase.updateBalance(model);
+        return new DefaultSuccessDto(HttpStatus.ACCEPTED.value(), "Balance updated");
+    }
+
+    public DefaultSuccessDto closeBalance(Long companyID, Long balanceId) {
+        try {
+            balanceUseCase.closeBalance(companyID, balanceId);
+        } catch (AccessException e) {
+            log.error(e.getMessage());
+            return new DefaultSuccessDto(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+        }
+        return new DefaultSuccessDto(HttpStatus.ACCEPTED.value(), "Balance closed");
     }
 }

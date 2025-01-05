@@ -38,12 +38,12 @@ public abstract class BalanceSheetMapper {
         );
     }
 
-    public static BalanceSheet toModel(BalanceSheetRequestDto dto) {
+    public static BalanceSheet toModel(Long companyId, BalanceSheetRequestDto dto) {
         LocalDate now = LocalDate.now();
         return new BalanceSheet(
                 now.getMonthValue(),
                 now.getYear(),
-                new Company(dto.companyId()),
+                new Company(companyId),
                 BalanceStatus.OPEN,
                 new Account(dto.accountId()),
                 dto.compositions().stream().map(CompositionsMapper::toModel).collect(Collectors.toSet())
