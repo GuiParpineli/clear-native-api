@@ -3,9 +3,9 @@ package br.com.clear.clearnativeapi.domain.usecase.composition;
 
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Composition;
-import br.com.clear.clearnativeapi.domain.repository.composition.CompositionRepository;
+import br.com.clear.clearnativeapi.domain.repository.CompositionRepository;
 
-class CompositionUseCaseImpl implements CompositionUseCase {
+public class CompositionUseCaseImpl implements CompositionUseCase {
     private final CompositionRepository repository;
 
     CompositionUseCaseImpl(CompositionRepository repository) {

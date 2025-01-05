@@ -6,7 +6,7 @@ import br.com.clear.clearnativeapi.domain.model.Composition;
 import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.enums.Role;
-import br.com.clear.clearnativeapi.domain.repository.balance.BalanceSheetRepository;
+import br.com.clear.clearnativeapi.domain.repository.BalanceSheetRepository;
 
 import java.util.List;
 

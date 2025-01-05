@@ -1,6 +1,6 @@
 package br.com.clear.clearnativeapi.domain.usecase.user;
 
-import br.com.clear.clearnativeapi.domain.repository.user.UserRepository;
+import br.com.clear.clearnativeapi.domain.repository.UserRepository;
 import br.com.clear.clearnativeapi.infrastructure.entity.UserEntity;
 
 public class UserUseCaseImpl implements UserUseCase {

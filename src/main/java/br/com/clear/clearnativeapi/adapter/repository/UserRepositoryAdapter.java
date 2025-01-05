@@ -1,8 +1,8 @@
 package br.com.clear.clearnativeapi.adapter.repository;
 
-import br.com.clear.clearnativeapi.domain.repository.user.UserRepository;
+import br.com.clear.clearnativeapi.domain.repository.UserRepository;
 import br.com.clear.clearnativeapi.infrastructure.entity.UserEntity;
-import br.com.clear.clearnativeapi.infrastructure.repository.user.UserJpaRepository;
+import br.com.clear.clearnativeapi.infrastructure.repository.UserJpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository

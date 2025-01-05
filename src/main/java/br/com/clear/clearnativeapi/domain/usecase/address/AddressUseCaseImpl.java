@@ -2,9 +2,9 @@ package br.com.clear.clearnativeapi.domain.usecase.address;
 
 
 import br.com.clear.clearnativeapi.domain.model.Address;
-import br.com.clear.clearnativeapi.domain.repository.address.AddressRepository;
+import br.com.clear.clearnativeapi.domain.repository.AddressRepository;
 
-class AddressUseCaseImpl implements AddressUseCase {
+public class AddressUseCaseImpl implements AddressUseCase {
     private final AddressRepository repository;
 
     AddressUseCaseImpl(AddressRepository repository) {

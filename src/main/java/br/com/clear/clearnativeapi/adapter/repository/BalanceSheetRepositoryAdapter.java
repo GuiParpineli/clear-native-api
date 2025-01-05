@@ -1,14 +1,14 @@
 package br.com.clear.clearnativeapi.adapter.repository;
 
-import br.com.clear.clearnativeapi.adapter.mapper.balance.BalanceSheetMapper;
-import br.com.clear.clearnativeapi.adapter.mapper.composition.CompositionsMapper;
+import br.com.clear.clearnativeapi.adapter.mapper.BalanceSheetMapper;
+import br.com.clear.clearnativeapi.adapter.mapper.CompositionsMapper;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.model.Company;
-import br.com.clear.clearnativeapi.domain.repository.balance.BalanceSheetRepository;
+import br.com.clear.clearnativeapi.domain.repository.BalanceSheetRepository;
 import br.com.clear.clearnativeapi.infrastructure.entity.BalanceSheetEntity;
 import br.com.clear.clearnativeapi.infrastructure.entity.CompanyEntity;
-import br.com.clear.clearnativeapi.infrastructure.repository.balance.BalanceSheetJpaRepository;
-import br.com.clear.clearnativeapi.infrastructure.repository.company.CompanyJpaRepository;
+import br.com.clear.clearnativeapi.infrastructure.repository.BalanceSheetJpaRepository;
+import br.com.clear.clearnativeapi.infrastructure.repository.CompanyJpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

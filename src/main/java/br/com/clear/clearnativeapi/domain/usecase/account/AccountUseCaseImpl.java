@@ -2,9 +2,9 @@ package br.com.clear.clearnativeapi.domain.usecase.account;
 
 
 import br.com.clear.clearnativeapi.domain.model.Account;
-import br.com.clear.clearnativeapi.domain.repository.account.AccountRepository;
+import br.com.clear.clearnativeapi.domain.repository.AccountRepository;
 
-class AccountUseCaseImpl implements AccountUseCase {
+public class AccountUseCaseImpl implements AccountUseCase {
     private final AccountRepository repository;
 
     AccountUseCaseImpl(AccountRepository repository) {

@@ -1,6 +1,6 @@
 package br.com.clear.clearnativeapi.web.controller.balance;
 
-import br.com.clear.clearnativeapi.adapter.service.balance.BalanceUseCaseAdapter;
+import br.com.clear.clearnativeapi.adapter.service.BalanceUseCaseAdapter;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
 import io.swagger.v3.oas.annotations.tags.Tag;

@@ -1,6 +1,6 @@
 package br.com.clear.clearnativeapi.web.controller.responsible;
 
-import br.com.clear.clearnativeapi.adapter.service.responsible.ResponsibleUseCaseAdapter;
+import br.com.clear.clearnativeapi.adapter.service.ResponsibleUseCaseAdapter;
 import br.com.clear.clearnativeapi.web.controller.responsible.dto.CreateResponsibleDto;
 import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 import io.swagger.v3.oas.annotations.tags.Tag;

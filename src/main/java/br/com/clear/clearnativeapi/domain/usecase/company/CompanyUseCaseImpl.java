@@ -2,9 +2,9 @@ package br.com.clear.clearnativeapi.domain.usecase.company;
 
 
 import br.com.clear.clearnativeapi.domain.model.Company;
-import br.com.clear.clearnativeapi.domain.repository.company.CompanyRepository;
+import br.com.clear.clearnativeapi.domain.repository.CompanyRepository;
 
-class CompanyUseCaseImpl implements CompanyUseCase {
+public class CompanyUseCaseImpl implements CompanyUseCase {
     private final CompanyRepository repository;
 
     CompanyUseCaseImpl(CompanyRepository repository) {
