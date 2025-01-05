@@ -7,15 +7,18 @@ import br.com.clear.clearnativeapi.domain.model.Responsible;
 import br.com.clear.clearnativeapi.domain.model.enums.BalanceStatus;
 import br.com.clear.clearnativeapi.domain.model.enums.Role;
 import br.com.clear.clearnativeapi.domain.repository.BalanceSheetRepository;
+import br.com.clear.clearnativeapi.domain.repository.ResponsibleRepository;
 import org.springframework.expression.AccessException;
 
 import java.util.List;
 
 public class BalanceUseCaseImpl implements BalanceUseCase {
     private final BalanceSheetRepository repository;
+    private final ResponsibleRepository responsibleRepository;
 
-    public BalanceUseCaseImpl(BalanceSheetRepository repository) {
+    public BalanceUseCaseImpl(BalanceSheetRepository repository, ResponsibleRepository responsibleRepository) {
         this.repository = repository;
+        this.responsibleRepository = responsibleRepository;
     }
 
     @Override
@@ -39,7 +42,9 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public void reopenCloseBalance(BalanceSheet request, Responsible responsible) {
+    public void reopenCloseBalance(Long companyID, Long balanceId, Long responsibleId) {
+        BalanceSheet request = repository.findById(balanceId);
+        Responsible responsible = responsibleRepository.findById(responsibleId);
         if (request.getStatus() == BalanceStatus.PENDENT_REOPEN && responsible.getRole().isAdminOrSuper()) {
             request.setStatus(BalanceStatus.PROGRESS);
             repository.update(request);

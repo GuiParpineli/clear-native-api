@@ -3,6 +3,7 @@ package br.com.clear.clearnativeapi.adapter.service;
 import br.com.clear.clearnativeapi.adapter.mapper.BalanceSheetMapper;
 import br.com.clear.clearnativeapi.domain.model.BalanceSheet;
 import br.com.clear.clearnativeapi.domain.repository.BalanceSheetRepository;
+import br.com.clear.clearnativeapi.domain.repository.ResponsibleRepository;
 import br.com.clear.clearnativeapi.domain.usecase.balance.BalanceUseCase;
 import br.com.clear.clearnativeapi.domain.usecase.balance.BalanceUseCaseImpl;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
@@ -20,8 +21,8 @@ import java.util.List;
 public class BalanceUseCaseAdapter {
     private final BalanceUseCase balanceUseCase;
 
-    public BalanceUseCaseAdapter(BalanceSheetRepository repository) {
-        this.balanceUseCase = new BalanceUseCaseImpl(repository);
+    public BalanceUseCaseAdapter(BalanceSheetRepository repository, ResponsibleRepository responsibleRepository) {
+        this.balanceUseCase = new BalanceUseCaseImpl(repository, responsibleRepository);
     }
 
     public List<BalanceSheetDto> getBalanceByMonthAndYear(Long companyId, Integer month, Integer year) {
@@ -54,5 +55,10 @@ public class BalanceUseCaseAdapter {
             return new DefaultSuccessDto(HttpStatus.BAD_REQUEST.value(), e.getMessage());
         }
         return new DefaultSuccessDto(HttpStatus.ACCEPTED.value(), "Balance closed");
+    }
+
+    public DefaultSuccessDto reopenBalance(Long companyID, Long balanceId, Long responsibleId) {
+        balanceUseCase.reopenCloseBalance(companyID, balanceId, responsibleId);
+        return new DefaultSuccessDto(HttpStatus.ACCEPTED.value(), "Balance reopened");
     }
 }

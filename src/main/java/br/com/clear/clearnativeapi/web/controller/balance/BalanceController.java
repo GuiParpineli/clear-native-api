@@ -44,11 +44,24 @@ public class BalanceController {
 
     @PatchMapping("/update")
     public ResponseEntity<DefaultSuccessDto> updateBalance(@RequestHeader Long companyId, @RequestBody BalanceSheetRequestDto dto) {
-        return ResponseEntity.ok(useCase.updateBalance(companyId, dto));
+        DefaultSuccessDto body = useCase.updateBalance(companyId, dto);
+        return ResponseEntity.status(body.httpStatus()).body(body);
     }
 
     @PatchMapping("/close")
     public ResponseEntity<DefaultSuccessDto> closeBalance(@RequestHeader Long companyID, @RequestParam Long id) {
-        return ResponseEntity.ok(useCase.closeBalance(companyID, id));
+        DefaultSuccessDto body = useCase.closeBalance(companyID, id);
+        return ResponseEntity.status(body.httpStatus()).body(body);
     }
+
+    @PatchMapping("/reopen")
+    public ResponseEntity<DefaultSuccessDto> reopenBalance(
+            @RequestHeader Long companyID,
+            @RequestParam Long balanceId,
+            @RequestParam Long responsibleId
+    ) {
+        DefaultSuccessDto body = useCase.reopenBalance(companyID, balanceId, responsibleId);
+        return ResponseEntity.status(body.httpStatus()).body(body);
+    }
+
 }

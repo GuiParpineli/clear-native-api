@@ -4,4 +4,6 @@ import br.com.clear.clearnativeapi.domain.model.Responsible;
 
 public interface ResponsibleRepository {
     Responsible save(Responsible responsible);
+
+    Responsible findById(Long responsibleId);
 }

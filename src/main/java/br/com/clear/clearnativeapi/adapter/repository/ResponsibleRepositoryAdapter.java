@@ -20,4 +20,10 @@ public class ResponsibleRepositoryAdapter implements ResponsibleRepository {
         ResponsibleEntity entity = ResponsibleMapper.toEntity(responsible);
         return ResponsibleMapper.toModel(repository.save(entity));
     }
+
+    @Override
+    public Responsible findById(Long responsibleId) {
+        ResponsibleEntity responsibleEntity = repository.findById(responsibleId).orElseThrow();
+        return ResponsibleMapper.toModel(responsibleEntity);
+    }
 }

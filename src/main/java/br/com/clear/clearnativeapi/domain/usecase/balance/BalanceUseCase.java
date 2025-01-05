@@ -16,7 +16,7 @@ public interface BalanceUseCase {
 
     void closeBalance(Long companyID, Long balanceId) throws AccessException;
 
-    void reopenCloseBalance(BalanceSheet request, Responsible responsible);
+    void reopenCloseBalance(Long companyID, Long balanceId, Long responsibleID);
 
     void deleteBalance(BalanceSheet request, Responsible responsible);
 
