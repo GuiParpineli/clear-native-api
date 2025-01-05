@@ -8,7 +8,7 @@ public abstract class UserMapper {
     public static UserEntity toEntity(User user) {
         return new UserEntity(
                 user.getId() == null ? null : user.getId(),
-                user.getName(),
+                user.getUsername(),
                 user.getPassword(),
                 user.getEmail(),
                 user.getRole().name()
@@ -18,7 +18,7 @@ public abstract class UserMapper {
     public static User toModel(UserEntity userEntity) {
         User user = new User();
         user.setId(userEntity.getId());
-        user.setName(userEntity.getUsername());
+        user.setUsername(userEntity.getUsername());
         user.setEmail(userEntity.getEmail());
         user.setPassword(userEntity.getPassword());
         user.setRole(Role.valueOf(userEntity.getRole()));

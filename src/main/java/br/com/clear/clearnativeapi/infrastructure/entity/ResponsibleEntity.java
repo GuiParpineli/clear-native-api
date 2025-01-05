@@ -18,10 +18,8 @@ public class ResponsibleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(length = 50)
+    @Column(length = 50, nullable = false)
     private String name;
-    @Column(length = 35, nullable = false, unique = true)
-    private String email;
     @Column(length = 15)
     private String phone;
     @Column(length = 25, nullable = false)

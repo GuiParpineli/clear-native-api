@@ -12,8 +12,8 @@ public abstract class ResponsibleMapper {
     public static ResponsibleDto toDto(Responsible responsible) {
         return new ResponsibleDto(
                 responsible.getId(),
-                responsible.getName(),
-                responsible.getEmail(),
+                responsible.getUser().getUsername(),
+                responsible.getUser().getEmail(),
                 responsible.getUser().getId(),
                 CompanyMapper.toDto(responsible.getCompany())
         );
@@ -23,7 +23,6 @@ public abstract class ResponsibleMapper {
         return new ResponsibleEntity(
                 responsible.getId() == null ? null : responsible.getId(),
                 responsible.getName(),
-                responsible.getEmail(),
                 responsible.getPhone(),
                 responsible.getRole().name(),
                 CompanyMapper.toEntity(responsible.getCompany()),
@@ -34,13 +33,12 @@ public abstract class ResponsibleMapper {
     public static Responsible toModel(CreateResponsibleDto dto) {
         return new Responsible(
                 dto.name(),
-                dto.email(),
                 dto.phone(),
                 Role.USER,
                 new Company(dto.companyId()),
                 new User(
-                        0L,
-                        dto.name(),
+                        null,
+                        dto.username(),
                         dto.email(),
                         dto.password(),
                         Role.USER
@@ -50,16 +48,15 @@ public abstract class ResponsibleMapper {
 
     public static Responsible toModel(ResponsibleEntity entity) {
         return new Responsible(
-                entity.getId(),
+                entity.getId() == null ? null : entity.getId(),
                 entity.getName(),
-                entity.getEmail(),
                 entity.getPhone(),
                 Role.USER,
                 new Company(entity.getCompany().getId()),
                 new User(
                         entity.getId(),
-                        entity.getName(),
-                        entity.getEmail(),
+                        entity.getUserEntity().getUsername(),
+                        entity.getUserEntity().getEmail(),
                         entity.getUserEntity().getPassword(),
                         Role.valueOf(entity.getRole())
                 )

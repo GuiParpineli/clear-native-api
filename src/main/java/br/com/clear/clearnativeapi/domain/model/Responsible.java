@@ -8,25 +8,22 @@ import lombok.Data;
 public class Responsible {
     private Long id;
     private String name;
-    private String email;
     private String phone;
     private Role role;
     private Company company;
     private User user;
 
-    public Responsible(String name, String email, String phone, Role role, Company company, User user) {
+    public Responsible(String name, String phone, Role role, Company company, User user) {
         this.name = name;
-        this.email = email;
         this.phone = phone;
         this.role = role;
         this.company = company;
         this.user = user;
     }
 
-    public Responsible(Long id, String name, String email, String phone, Role role, Company company, User user) {
+    public Responsible(Long id, String name, String phone, Role role, Company company, User user) {
         this.id = id;
         this.name = name;
-        this.email = email;
         this.phone = phone;
         this.role = role;
         this.company = company;
