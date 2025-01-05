@@ -23,6 +23,16 @@ public class Responsible {
         this.user = user;
     }
 
+    public Responsible(Long id, String name, String email, String phone, Role role, Company company, User user) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phone = phone;
+        this.role = role;
+        this.company = company;
+        this.user = user;
+    }
+
     public Responsible(Long id) {
         this.id = id;
     }

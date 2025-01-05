@@ -50,6 +50,7 @@ public abstract class ResponsibleMapper {
 
     public static Responsible toModel(ResponsibleEntity entity) {
         return new Responsible(
+                entity.getId(),
                 entity.getName(),
                 entity.getEmail(),
                 entity.getPhone(),
