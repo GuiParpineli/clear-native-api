@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 public class Composition {
-    private long id;
+    private Long id;
     private long taxNoteNumber;
     private Double iss;
     private Double inss;

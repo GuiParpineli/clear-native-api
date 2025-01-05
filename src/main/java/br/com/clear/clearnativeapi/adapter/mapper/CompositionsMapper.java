@@ -64,7 +64,7 @@ public abstract class CompositionsMapper {
 
     public static CompositionEntity toEntity(Composition composition) {
         return new CompositionEntity(
-                composition.getId(),
+                composition.getId() == null ? null : composition.getId(),
                 composition.getTaxNoteNumber(),
                 composition.getIss(),
                 composition.getInss(),

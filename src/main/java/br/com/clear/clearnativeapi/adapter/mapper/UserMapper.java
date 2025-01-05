@@ -7,7 +7,7 @@ import br.com.clear.clearnativeapi.infrastructure.entity.UserEntity;
 public abstract class UserMapper {
     public static UserEntity toEntity(User user) {
         return new UserEntity(
-                user.getId(),
+                user.getId() == null ? null : user.getId(),
                 user.getName(),
                 user.getPassword(),
                 user.getEmail(),

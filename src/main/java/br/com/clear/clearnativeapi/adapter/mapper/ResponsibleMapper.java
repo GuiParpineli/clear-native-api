@@ -21,7 +21,7 @@ public abstract class ResponsibleMapper {
 
     public static ResponsibleEntity toEntity(Responsible responsible) {
         return new ResponsibleEntity(
-                responsible.getId(),
+                responsible.getId() == null ? null : responsible.getId(),
                 responsible.getName(),
                 responsible.getEmail(),
                 responsible.getPhone(),

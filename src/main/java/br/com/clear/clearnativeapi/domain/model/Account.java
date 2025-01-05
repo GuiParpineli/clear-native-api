@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Account {
-    private long id;
+    private Long id;
     private int accountNumber;
     private String accountName;
     private AccountType type;

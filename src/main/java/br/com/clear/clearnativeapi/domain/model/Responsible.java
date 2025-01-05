@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class Responsible {
-    private long id;
+    private Long id;
     private String name;
     private String email;
     private String phone;

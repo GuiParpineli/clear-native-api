@@ -50,17 +50,17 @@ public abstract class BalanceSheetMapper {
         );
     }
 
-    public static BalanceSheetEntity toEntity(BalanceSheet request) {
-        CompanyEntity company = new CompanyEntity(request.getId());
-        AccountEntity account = new AccountEntity(request.getId());
+    public static BalanceSheetEntity toEntity(BalanceSheet balance) {
+        CompanyEntity company = new CompanyEntity(balance.getId());
+        AccountEntity account = new AccountEntity(balance.getId());
         BalanceSheetEntity entity = new BalanceSheetEntity();
-        entity.setId(request.getId());
-        entity.setMonth(request.getMonth());
-        entity.setYear(request.getYear());
-        entity.setStatus(request.getStatus().name());
+        entity.setId(balance.getId() == null ? null : balance.getId());
+        entity.setMonth(balance.getMonth());
+        entity.setYear(balance.getYear());
+        entity.setStatus(balance.getStatus().name());
         entity.setCompany(company);
         entity.setAccount(account);
-        entity.setCompositions(request.getCompositions().stream()
+        entity.setCompositions(balance.getCompositions().stream()
                 .map(CompositionsMapper::toEntity).collect(Collectors.toSet()));
         return entity;
     }

@@ -28,7 +28,7 @@ public abstract class AddressMapper {
 
     public static Address toModel(AddressDto address) {
         return new Address(
-                0,
+                null,
                 address.zipCode(),
                 address.street(),
                 address.number(),
@@ -37,9 +37,9 @@ public abstract class AddressMapper {
         );
     }
 
-    public static AddressEntity toModel(Address address) {
+    public static AddressEntity toEntity(Address address) {
         return new AddressEntity(
-                null,
+                address.getId() == null ? null : address.getId(),
                 address.getZipCode(),
                 address.getStreet(),
                 address.getNumber(),

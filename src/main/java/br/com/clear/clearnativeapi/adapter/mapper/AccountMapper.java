@@ -26,7 +26,7 @@ public abstract class AccountMapper {
 
     public static AccountEntity toEntity(Account account) {
         return new AccountEntity(
-                account.getId(),
+                account.getId() == null ? null : account.getId(),
                 account.getAccountNumber(),
                 account.getAccountName(),
                 account.getType().name()

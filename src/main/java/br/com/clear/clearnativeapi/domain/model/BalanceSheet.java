@@ -13,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BalanceSheet {
-    private long id;
+    private Long id;
     private int month;
     private int year;
     private BalanceStatus status;

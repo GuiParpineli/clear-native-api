@@ -12,12 +12,12 @@ public abstract class CompanyMapper {
 
     public static CompanyEntity toEntity(Company company) {
         return new CompanyEntity(
-                null,
+                company.getId() == null ? null : company.getId(),
                 company.getName(),
                 company.getCnpj(),
                 company.getEmail(),
                 company.getPhone(),
-                AddressMapper.toModel(company.getAddress())
+                AddressMapper.toEntity(company.getAddress())
         );
     }
 
@@ -38,7 +38,7 @@ public abstract class CompanyMapper {
 
     public static Company toModel(CompanyRequestDto dto) {
         return new Company(
-                0,
+                null,
                 dto.name(),
                 dto.cnpj(),
                 dto.email(),
