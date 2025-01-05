@@ -22,7 +22,7 @@ public interface BalanceUseCase {
 
     void addComposition(Composition composition);
 
-    BalanceSheet getBalanceById(Long id);
+    BalanceSheet getBalanceById(Long companyId, Long id);
 
     List<BalanceSheet> getBalances(Company request);
 

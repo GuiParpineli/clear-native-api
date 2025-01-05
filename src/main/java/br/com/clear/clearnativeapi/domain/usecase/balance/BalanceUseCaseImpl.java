@@ -60,15 +60,15 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
 
     @Override
     public void addComposition(Composition composition) {
-        BalanceSheet balance = getBalanceById(composition.getBalance().getId());
+        BalanceSheet balance = repository.findById(composition.getBalance().getId());
         balance.getCompositions().add(composition);
         balance.setStatus(BalanceStatus.PROGRESS);
         repository.update(balance);
     }
 
     @Override
-    public BalanceSheet getBalanceById(Long id) {
-        return repository.findById(id);
+    public BalanceSheet getBalanceById(Long companyID, Long id) {
+        return repository.findByCompanyAndId(companyID, id);
     }
 
     @Override

@@ -10,10 +10,10 @@ import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto
 import org.springframework.stereotype.Service;
 
 @Service
-public class ResponsibleUseCaseAdapter {
+public class ResponsibleServiceAdapter {
     private final ResponsibleUseCase responsibleUseCase;
 
-    public ResponsibleUseCaseAdapter(ResponsibleRepository repository) {
+    public ResponsibleServiceAdapter(ResponsibleRepository repository) {
         this.responsibleUseCase = new ResponsibleUseCaseImpl(repository);
     }
 

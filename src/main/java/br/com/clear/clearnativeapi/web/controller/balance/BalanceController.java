@@ -1,9 +1,9 @@
 package br.com.clear.clearnativeapi.web.controller.balance;
 
-import br.com.clear.clearnativeapi.adapter.service.BalanceUseCaseAdapter;
+import br.com.clear.clearnativeapi.adapter.service.BalanceServiceAdapter;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
-import br.com.clear.clearnativeapi.web.shared.dto.DefaultSuccessDto;
+import br.com.clear.clearnativeapi.web.shared.dto.DefaultResponseDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -16,15 +16,15 @@ import java.util.List;
 @RequestMapping(value = "public/balance", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Balance", description = "Balance operations")
 public class BalanceController {
-    private final BalanceUseCaseAdapter useCase;
+    private final BalanceServiceAdapter useCase;
 
-    public BalanceController(BalanceUseCaseAdapter useCase) {
+    public BalanceController(BalanceServiceAdapter useCase) {
         this.useCase = useCase;
     }
 
     @GetMapping
     public ResponseEntity<BalanceSheetDto> findById(@RequestHeader Long companyID, @RequestParam Long id) {
-        return ResponseEntity.ok(useCase.getBalanceById(id));
+        return ResponseEntity.ok(useCase.getBalanceById(companyID, id));
     }
 
     @GetMapping("/all")
@@ -43,24 +43,24 @@ public class BalanceController {
     }
 
     @PatchMapping("/update")
-    public ResponseEntity<DefaultSuccessDto> updateBalance(@RequestHeader Long companyId, @RequestBody BalanceSheetRequestDto dto) {
-        DefaultSuccessDto body = useCase.updateBalance(companyId, dto);
+    public ResponseEntity<DefaultResponseDto> updateBalance(@RequestHeader Long companyId, @RequestBody BalanceSheetRequestDto dto) {
+        DefaultResponseDto body = useCase.updateBalance(companyId, dto);
         return ResponseEntity.status(body.httpStatus()).body(body);
     }
 
     @PatchMapping("/close")
-    public ResponseEntity<DefaultSuccessDto> closeBalance(@RequestHeader Long companyID, @RequestParam Long id) {
-        DefaultSuccessDto body = useCase.closeBalance(companyID, id);
+    public ResponseEntity<DefaultResponseDto> closeBalance(@RequestHeader Long companyID, @RequestParam Long id) {
+        DefaultResponseDto body = useCase.closeBalance(companyID, id);
         return ResponseEntity.status(body.httpStatus()).body(body);
     }
 
     @PatchMapping("/reopen")
-    public ResponseEntity<DefaultSuccessDto> reopenBalance(
+    public ResponseEntity<DefaultResponseDto> reopenBalance(
             @RequestHeader Long companyID,
             @RequestParam Long balanceId,
             @RequestParam Long responsibleId
     ) {
-        DefaultSuccessDto body = useCase.reopenBalance(companyID, balanceId, responsibleId);
+        DefaultResponseDto body = useCase.reopenBalance(companyID, balanceId, responsibleId);
         return ResponseEntity.status(body.httpStatus()).body(body);
     }
 

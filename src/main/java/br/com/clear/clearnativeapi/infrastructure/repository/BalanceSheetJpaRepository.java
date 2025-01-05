@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BalanceSheetJpaRepository extends JpaRepository<BalanceSheetEntity, Long> {
@@ -21,4 +22,7 @@ public interface BalanceSheetJpaRepository extends JpaRepository<BalanceSheetEnt
 
     @Query("select b from BalanceSheetEntity  b where  b.company = ?1 and b.month = ?2")
     List<BalanceSheetEntity> findByMonth(CompanyEntity companyEntity, String month);
+
+    @Query("select b from BalanceSheetEntity  b where b.company.id = ?1 and b.id = ?2")
+    Optional<BalanceSheetEntity> findByCompanyAndId(Long companyID, Long id);
 }

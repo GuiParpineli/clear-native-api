@@ -86,4 +86,9 @@ public class BalanceSheetRepositoryAdapter implements BalanceSheetRepository {
                 .map(BalanceSheetMapper::toModel)
                 .toList();
     }
+
+    @Override
+    public BalanceSheet findByCompanyAndId(Long companyID, Long id) {
+        return BalanceSheetMapper.toModel(repository.findByCompanyAndId(companyID, id).orElseThrow());
+    }
 }

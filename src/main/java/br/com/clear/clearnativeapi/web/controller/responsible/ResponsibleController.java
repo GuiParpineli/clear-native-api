@@ -1,6 +1,6 @@
 package br.com.clear.clearnativeapi.web.controller.responsible;
 
-import br.com.clear.clearnativeapi.adapter.service.ResponsibleUseCaseAdapter;
+import br.com.clear.clearnativeapi.adapter.service.ResponsibleServiceAdapter;
 import br.com.clear.clearnativeapi.web.controller.responsible.dto.CreateResponsibleDto;
 import br.com.clear.clearnativeapi.web.controller.responsible.dto.ResponsibleDto;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "responsible", produces = MediaType.APPLICATION_JSON_VALUE)
 @Tag(name = "Responsible", description = "Responsible operations")
 public class ResponsibleController {
-    private final ResponsibleUseCaseAdapter useCase;
+    private final ResponsibleServiceAdapter useCase;
 
-    public ResponsibleController(ResponsibleUseCaseAdapter useCase) {
+    public ResponsibleController(ResponsibleServiceAdapter useCase) {
         this.useCase = useCase;
     }
 

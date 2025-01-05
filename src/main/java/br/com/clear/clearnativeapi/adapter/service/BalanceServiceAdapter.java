@@ -8,7 +8,7 @@ import br.com.clear.clearnativeapi.domain.usecase.balance.BalanceUseCase;
 import br.com.clear.clearnativeapi.domain.usecase.balance.BalanceUseCaseImpl;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetDto;
 import br.com.clear.clearnativeapi.web.controller.balance.dto.BalanceSheetRequestDto;
-import br.com.clear.clearnativeapi.web.shared.dto.DefaultSuccessDto;
+import br.com.clear.clearnativeapi.web.shared.dto.DefaultResponseDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.expression.AccessException;
 import org.springframework.http.HttpStatus;
@@ -18,10 +18,10 @@ import java.util.List;
 
 @Slf4j
 @Service
-public class BalanceUseCaseAdapter {
+public class BalanceServiceAdapter {
     private final BalanceUseCase balanceUseCase;
 
-    public BalanceUseCaseAdapter(BalanceSheetRepository repository, ResponsibleRepository responsibleRepository) {
+    public BalanceServiceAdapter(BalanceSheetRepository repository, ResponsibleRepository responsibleRepository) {
         this.balanceUseCase = new BalanceUseCaseImpl(repository, responsibleRepository);
     }
 
@@ -37,28 +37,28 @@ public class BalanceUseCaseAdapter {
         return balanceUseCase.createBalance(model).getId();
     }
 
-    public BalanceSheetDto getBalanceById(Long id) {
-        return BalanceSheetMapper.toDto(balanceUseCase.getBalanceById(id));
+    public BalanceSheetDto getBalanceById(Long companyID, Long balancedId) {
+        return BalanceSheetMapper.toDto(balanceUseCase.getBalanceById(companyID, balancedId));
     }
 
-    public DefaultSuccessDto updateBalance(Long companyId, BalanceSheetRequestDto dto) {
+    public DefaultResponseDto updateBalance(Long companyId, BalanceSheetRequestDto dto) {
         BalanceSheet model = BalanceSheetMapper.toModel(companyId, dto);
         balanceUseCase.updateBalance(model);
-        return new DefaultSuccessDto(HttpStatus.ACCEPTED.value(), "Balance updated");
+        return new DefaultResponseDto(HttpStatus.ACCEPTED.value(), "Balance updated");
     }
 
-    public DefaultSuccessDto closeBalance(Long companyID, Long balanceId) {
+    public DefaultResponseDto closeBalance(Long companyID, Long balanceId) {
         try {
             balanceUseCase.closeBalance(companyID, balanceId);
         } catch (AccessException e) {
             log.error(e.getMessage());
-            return new DefaultSuccessDto(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+            return new DefaultResponseDto(HttpStatus.BAD_REQUEST.value(), e.getMessage());
         }
-        return new DefaultSuccessDto(HttpStatus.ACCEPTED.value(), "Balance closed");
+        return new DefaultResponseDto(HttpStatus.ACCEPTED.value(), "Balance closed");
     }
 
-    public DefaultSuccessDto reopenBalance(Long companyID, Long balanceId, Long responsibleId) {
+    public DefaultResponseDto reopenBalance(Long companyID, Long balanceId, Long responsibleId) {
         balanceUseCase.reopenCloseBalance(companyID, balanceId, responsibleId);
-        return new DefaultSuccessDto(HttpStatus.ACCEPTED.value(), "Balance reopened");
+        return new DefaultResponseDto(HttpStatus.ACCEPTED.value(), "Balance reopened");
     }
 }

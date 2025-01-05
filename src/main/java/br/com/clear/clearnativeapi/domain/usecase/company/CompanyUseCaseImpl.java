@@ -7,13 +7,13 @@ import br.com.clear.clearnativeapi.domain.repository.CompanyRepository;
 public class CompanyUseCaseImpl implements CompanyUseCase {
     private final CompanyRepository repository;
 
-    CompanyUseCaseImpl(CompanyRepository repository) {
+    public CompanyUseCaseImpl(CompanyRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public Company createCompany(Company company) {
-        return repository.save(company);
+    public void createCompany(Company company) {
+        repository.save(company);
     }
 
     @Override

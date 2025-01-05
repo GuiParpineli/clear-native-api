@@ -21,4 +21,6 @@ public interface BalanceSheetRepository {
     List<BalanceSheet> getByMonth(Company company, String month);
 
     List<BalanceSheet> findByMonthAndYear(Long companyId, Integer month, Integer year);
+
+    BalanceSheet findByCompanyAndId(Long companyID, Long id);
 }
