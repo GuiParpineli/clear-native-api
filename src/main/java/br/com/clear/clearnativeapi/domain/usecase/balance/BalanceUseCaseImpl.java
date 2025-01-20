@@ -35,7 +35,7 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     @Override
     public void closeBalance(Long companyID, Long balanceId) throws AccessException {
         BalanceSheet balance = repository.findById(balanceId);
-        if (balance.getCompany().getId() != companyID)
+        if (!balance.getCompany().getId().equals(companyID))
             throw new AccessException("Failed,company does not belong to balance sheet");
         balance.setStatus(BalanceStatus.CLOSED);
         repository.update(balance);
@@ -87,11 +87,6 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     }
 
     @Override
-    public BalanceSheet getBalanceByComposition(Company company, Composition composition) {
-        return null;
-    }
-
-    @Override
     public BalanceSheet getBalanceByCompanyDtoAndResponsibleDto(Company request, Responsible responsible) {
         return null;
     }
@@ -129,10 +124,5 @@ public class BalanceUseCaseImpl implements BalanceUseCase {
     @Override
     public List<BalanceSheet> getBalanceByYear(Company Company, Integer year) {
         return List.of();
-    }
-
-    @Override
-    public void deleteComposition(Composition composition) {
-
     }
 }

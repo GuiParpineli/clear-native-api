@@ -30,8 +30,6 @@ public interface BalanceUseCase {
 
     List<BalanceSheet> getBalanceByMonth(Company company, String month);
 
-    BalanceSheet getBalanceByComposition(Company company, Composition composition);
-
     BalanceSheet getBalanceByCompanyDtoAndResponsibleDto(Company request, Responsible responsible);
 
     BalanceSheet getBalanceByCompanyDtoAndStatus(Company company, BalanceStatus balanceStatus);
@@ -47,6 +45,4 @@ public interface BalanceUseCase {
     BalanceSheet getBalanceByResponsibleDtoAndYear(Responsible responsible, Integer year);
 
     List<BalanceSheet> getBalanceByYear(Company company, Integer year);
-
-    void deleteComposition(Composition composition);
 }
